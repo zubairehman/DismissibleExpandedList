@@ -2,7 +2,7 @@ name: dismissible_expanded_list
 description: A Flutter package to provided dismissible and expanded list.
 version: 0.0.1
 author: Zubair Rehman <zubairehman.work@gmail.com>
-homepage: https://github.com/zubairehman/Flogs
+homepage: https://zubairehman-embrace@bitbucket.org/zubairehman-embrace/dismissibleexpandedlist.git
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
