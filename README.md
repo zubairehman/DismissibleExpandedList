@@ -1,6 +1,6 @@
 # dismissible_expanded_list
 
-A Flutter package to provided dismissible and expanded list
+A Flutter package to provided dismissible and expanded list.
 
 ## Getting Started
 

@@ -69,7 +69,8 @@ class DismissibleExpandableList extends StatefulWidget {
   }
 
   @override
-  _DismissibleExpandableListState createState() => _DismissibleExpandableListState();
+  _DismissibleExpandableListState createState() =>
+      _DismissibleExpandableListState();
 }
 
 class _DismissibleExpandableListState extends State<DismissibleExpandableList>
@@ -83,9 +84,9 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
   Animation<double> _iconTurns;
   bool _isExpanded = false;
   static final Animatable<double> _easeInTween =
-  CurveTween(curve: Curves.easeIn);
+      CurveTween(curve: Curves.easeIn);
   static final Animatable<double> _halfTween =
-  Tween<double>(begin: 0.0, end: 0.5);
+      Tween<double>(begin: 0.0, end: 0.5);
 
   @override
   void initState() {
@@ -137,29 +138,29 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
               .asMap()
               .map(
                 (childIndex, entry) => MapEntry(
-              childIndex,
-              Container(
-                height: 100.0,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: <Widget>[
-                    AnimatedBuilder(
-                      builder: (BuildContext context, Widget child) =>
-                          _buildLine(childIndex),
-                      animation: _controller,
+                  childIndex,
+                  Container(
+                    height: 100.0,
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: <Widget>[
+                        AnimatedBuilder(
+                          builder: (BuildContext context, Widget child) =>
+                              _buildLine(childIndex),
+                          animation: _controller,
+                        ),
+                        Expanded(
+                          child: widget.allowChildSwipe
+                              ? _buildDismissibleTile(
+                                  entry, parentIndex, childIndex)
+                              : _buildListTileCard(
+                                  entry, parentIndex, childIndex),
+                        ),
+                      ],
                     ),
-                    Expanded(
-                      child: widget.allowChildSwipe
-                          ? _buildDismissibleTile(
-                          entry, parentIndex, childIndex)
-                          : _buildListTileCard(
-                          entry, parentIndex, childIndex),
-                    ),
-                  ],
+                  ),
                 ),
-              ),
-            ),
-          )
+              )
               .values
               .toList(),
         )
@@ -188,11 +189,11 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
       child: widget.allowBatchSwipe && root.children.length > 0
           ? _buildListTile(root, parentIndex, childIndex)
           : Card(
-        color: root.id != null && root.id == widget.selectedId
-            ? widget.selectionColor
-            : Colors.white,
-        child: _buildListTile(root, parentIndex, childIndex),
-      ),
+              color: root.id != null && root.id == widget.selectedId
+                  ? widget.selectionColor
+                  : Colors.white,
+              child: _buildListTile(root, parentIndex, childIndex),
+            ),
     );
   }
 
@@ -203,7 +204,7 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
         widget.showInfoBadge ? _buildBadge() : SizedBox.shrink(),
         ListTile(
           contentPadding:
-          EdgeInsets.only(top: 10.0, bottom: 10.0, right: 10.0, left: 10.0),
+              EdgeInsets.only(top: 10.0, bottom: 10.0, right: 10.0, left: 10.0),
           title: _buildTitle(root),
           subtitle: _buildSubTitle(root),
           onTap: () {
@@ -266,12 +267,12 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
         ),
         widget.trailingIcon != null
             ? Icon(
-          widget.trailingIcon,
-          size: 15.0,
-          color: shouldApplySelection(root)
-              ? Colors.white
-              : widget.iconColor,
-        )
+                widget.trailingIcon,
+                size: 15.0,
+                color: shouldApplySelection(root)
+                    ? Colors.white
+                    : widget.iconColor,
+              )
             : SizedBox.shrink(),
       ],
     );
@@ -295,15 +296,15 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
           ),
           root.children.length > 0
               ? RotationTransition(
-            turns: _iconTurns,
-            child: Icon(
-              Icons.expand_more,
-              size: 18.0,
-              color: shouldApplySelection(root)
-                  ? Colors.white
-                  : widget.iconColor,
-            ),
-          )
+                  turns: _iconTurns,
+                  child: Icon(
+                    Icons.expand_more,
+                    size: 18.0,
+                    color: shouldApplySelection(root)
+                        ? Colors.white
+                        : widget.iconColor,
+                  ),
+                )
               : SizedBox.shrink(),
         ],
       ),
@@ -366,4 +367,3 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
     return root.children.length == 0 && root.id == widget.selectedId;
   }
 }
-
