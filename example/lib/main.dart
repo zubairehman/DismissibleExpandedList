@@ -48,7 +48,6 @@ class _ExpansionTileSampleState extends State<ExpansionTileSample> {
                   allowChildSwipe: false,
                   showBorder: false,
                   showInfoBadge: true,
-                  badgeText: 'NEW',
                   badgeColor: Colors.green,
                   badgeTextColor: Colors.white,
                   selectedId: selectedId,
