@@ -194,20 +194,7 @@ class CustomExpansionTileState extends State<CustomExpansionTile>
           ListTileTheme.merge(
             iconColor: _iconColor.value,
             textColor: _headerColor.value,
-            child: Card(child: widget.listTile
-//              ListTile(
-//                contentPadding: EdgeInsets.symmetric(horizontal: 4.0),
-//                onTap: toggle,
-//                leading: widget.leading,
-//                title: widget.title,
-//                subtitle: Text('SubTitle'),
-//                trailing: widget.trailing ??
-//                    RotationTransition(
-//                      turns: _iconTurns,
-//                      child: const Icon(Icons.expand_more),
-//                    ),
-//              ),
-                ),
+            child: widget.listTile,
           ),
           ClipRect(
             child: Align(

@@ -1,4 +1,5 @@
 import 'package:dismissible_expanded_list/dismissible_expanded_list.dart';
+import 'package:dismissible_expanded_list/model/entry.dart';
 import 'package:example/mock.dart';
 import 'package:flutter/material.dart';
 
@@ -13,7 +14,9 @@ class ExpansionTileSample extends StatefulWidget {
 
 class _ExpansionTileSampleState extends State<ExpansionTileSample> {
   String title = 'Not Yet Selected';
-  String selectedId = '1.1';
+  String selectedId = '1';
+
+  final List<ExpandableListItem> list = mockData;
 
   @override
   Widget build(BuildContext context) {
@@ -42,10 +45,11 @@ class _ExpansionTileSampleState extends State<ExpansionTileSample> {
                 itemBuilder: (BuildContext context, int index) =>
                     DismissibleExpandableList(
                   parentIndex: index,
-                  entry: mockData[index],
-                  removeTileOnDismiss: true,
+                  entry: list[index],
+                  removeTileOnDismiss: false,
                   allowBatchSwipe: true,
                   allowChildSwipe: false,
+                  allowParentSelection: false,
                   showBorder: false,
                   showInfoBadge: true,
                   badgeColor: Colors.green,
@@ -54,6 +58,7 @@ class _ExpansionTileSampleState extends State<ExpansionTileSample> {
                   rightSwipeColor: Colors.green,
                   leftSwipeColor: Colors.red,
                   lineColor: Colors.grey[400],
+                  badgeWidth: 80.0,
                   selectionColor: Colors.red,
                   trailingIcon: Icons.info_outline,
                   onItemClick: (parentIndex, childIndex) {
@@ -64,37 +69,11 @@ class _ExpansionTileSampleState extends State<ExpansionTileSample> {
                       } else {
                         selectedId =
                             mockData[parentIndex].children[childIndex].id;
+
                         title =
                             mockData[parentIndex].children[childIndex].title;
                       }
                     });
-                  },
-                  onItemDismissed: (parentIndex, childIndex, direction,
-                      removeTileOnDismiss) {
-                    if (childIndex == -1) {
-                      // show message
-                      Scaffold.of(context).showSnackBar(
-                          SnackBar(content: Text(mockData[parentIndex].title)));
-
-                      // Remove the item from the data source.
-                      if (removeTileOnDismiss) {
-                        setState(() {
-                          mockData.removeAt(parentIndex);
-                        });
-                      }
-                    } else {
-                      // show message
-                      Scaffold.of(context).showSnackBar(SnackBar(
-                          content: Text(
-                              mockData[index].children[childIndex].title)));
-
-                      // Remove the item from the data source.
-                      if (removeTileOnDismiss) {
-                        setState(() {
-                          mockData[index].children.removeAt(childIndex);
-                        });
-                      }
-                    }
                   },
                 ),
                 itemCount: mockData.length,

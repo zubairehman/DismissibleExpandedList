@@ -8,24 +8,28 @@ final List<ExpandableListItem> mockData = <ExpandableListItem>[
     title: getTextWidget('Chapter A'),
     subTitle: getTextWidget('Subtitle'),
     selected: false,
+    badgeText: 'In Progress',
     children: <ExpandableListItem>[
       ExpandableListItem(
         id: '1.1',
         title: getTextWidget('Section A0'),
         subTitle: getTextWidget('Subtitle'),
         selected: false,
+        badgeText: 'In-Progress Not Started',
       ),
       ExpandableListItem(
         id: '1.2',
         title: getTextWidget('Section A1'),
         subTitle: getTextWidget('Subtitle'),
         selected: false,
+        badgeText: 'In-Progress Not Started',
       ),
       ExpandableListItem(
         id: '1.3',
         title: getTextWidget('Section A2'),
         subTitle: getTextWidget('Subtitle'),
         selected: false,
+        badgeText: 'In-Progress Not Started',
       ),
     ],
   ),
@@ -34,16 +38,22 @@ final List<ExpandableListItem> mockData = <ExpandableListItem>[
     title: getTextWidget('Chapter B'),
     subTitle: getTextWidget('Subtitle'),
     selected: false,
+    badgeText: 'In-Progress Not Started',
+
     children: <ExpandableListItem>[
       ExpandableListItem(
         id: '2.1',
         title: getTextWidget('Section B0'),
         subTitle: getTextWidget('Subtitle'),
+        badgeText: 'In-Progress Not Started',
+
       ),
       ExpandableListItem(
         id: '2.2',
         title: getTextWidget('Section B1'),
         subTitle: getTextWidget('Subtitle'),
+        badgeText: 'In-Progress Not Started',
+
       ),
     ],
   ),
@@ -52,21 +62,29 @@ final List<ExpandableListItem> mockData = <ExpandableListItem>[
     title: getTextWidget('Chapter C'),
     subTitle: getTextWidget('Subtitle'),
     selected: false,
+    badgeText: 'In-Progress Not Started',
+
     children: <ExpandableListItem>[
       ExpandableListItem(
         id: '3.1',
         title: getTextWidget('Section C0'),
         subTitle: getTextWidget('Subtitle'),
+        badgeText: 'In-Progress Not Started',
+
       ),
       ExpandableListItem(
         id: '3.2',
         title: getTextWidget('Section C1'),
         subTitle: getTextWidget('Subtitle'),
+        badgeText: 'In-Progress Not Started',
+
       ),
       ExpandableListItem(
         id: '3.3',
         title: getTextWidget('Section C2'),
         subTitle: getTextWidget('Subtitle'),
+        badgeText: 'In-Progress Not Started',
+
       ),
     ],
   ),
@@ -74,6 +92,8 @@ final List<ExpandableListItem> mockData = <ExpandableListItem>[
     id: '4',
     title: getTextWidget('Chapter D'),
     subTitle: getTextWidget('Subtitle'),
+    badgeText: 'In-Progress Not Started',
+    children: <ExpandableListItem>[],
   ),
 ];
 
