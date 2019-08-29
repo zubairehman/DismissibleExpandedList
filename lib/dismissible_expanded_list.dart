@@ -215,7 +215,7 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
             widget.onItemClick(parentIndex, childIndex);
 
             //only collapse if its a parent
-            if (!root.id.contains('.')) {
+            if (!root.id.contains('.') && root.children.isNotEmpty) {
 //          CustomExpansionTile.of(context).toggle();
               _expansionTile.currentState.toggle();
             }
@@ -245,7 +245,7 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
               widget.onItemClick(parentIndex, childIndex);
 
               //only collapse if its a parent
-              if (!root.id.contains('.')) {
+              if (!root.id.contains('.') && root.children.isNotEmpty) {
 //          CustomExpansionTile.of(context).toggle();
                 _expansionTile.currentState.toggle();
               }

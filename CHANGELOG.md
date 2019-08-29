@@ -25,3 +25,6 @@
 
 ## [0.0.9] - 29-Aug-2019
 * fixed selection issues on `allowParentSelection`
+
+## [0.1.0] - 29-Aug-2019
+* fixed crash issue on toggling a parent with no child
