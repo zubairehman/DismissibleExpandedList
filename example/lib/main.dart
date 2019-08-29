@@ -49,7 +49,7 @@ class _ExpansionTileSampleState extends State<ExpansionTileSample> {
                   removeTileOnDismiss: false,
                   allowBatchSwipe: true,
                   allowChildSwipe: false,
-                  allowParentSelection: false,
+                  allowParentSelection: true,
                   showBorder: false,
                   showInfoBadge: true,
                   badgeColor: Colors.green,
