@@ -22,3 +22,6 @@
 
 ## [0.0.8] - 28-Aug-2019
 * added configuration for batch selection color
+
+## [0.0.9] - 29-Aug-2019
+* fixed selection issues on `allowParentSelection`
