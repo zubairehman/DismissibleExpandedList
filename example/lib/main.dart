@@ -46,6 +46,24 @@ class _ExpansionTileSampleState extends State<ExpansionTileSample> {
                     DismissibleExpandableList(
                   parentIndex: index,
                   entry: list[index],
+                  titleStyle: TextStyle(
+                    fontSize: 15.0,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.blue,
+                  ),
+                  titleSelectedStyle: TextStyle(
+                    fontSize: 15.0,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.green,
+                  ),
+                  subTitleStyle: TextStyle(
+                    color: Colors.blue,
+                    fontSize: 12.0,
+                  ),
+                  subTitleSelectedStyle: TextStyle(
+                    color: Colors.green,
+                    fontSize: 12.0,
+                  ),
                   removeTileOnDismiss: false,
                   allowBatchSwipe: true,
                   allowChildSwipe: false,
