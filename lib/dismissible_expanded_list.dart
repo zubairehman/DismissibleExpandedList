@@ -35,6 +35,8 @@ class DismissibleExpandableList extends StatefulWidget {
   final Color iconColor;
   final TextStyle titleStyle;
   final TextStyle subTitleStyle;
+  final TextStyle titleSelectedStyle;
+  final TextStyle subTitleSelectedStyle;
   final IconData trailingIcon;
   final ExpandableListItem entry;
   final OnItemDismissed onItemDismissed;
@@ -62,6 +64,8 @@ class DismissibleExpandableList extends StatefulWidget {
     this.iconColor = Colors.black,
     this.titleStyle,
     this.subTitleStyle,
+    this.titleSelectedStyle,
+    this.subTitleSelectedStyle,
     this.badgeWidth = 60.0,
   }) {
     if (showInfoBadge) {
@@ -237,8 +241,8 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
         children: <Widget>[
           widget.showInfoBadge ? _buildBadge(root) : SizedBox.shrink(),
           ListTile(
-            contentPadding: EdgeInsets.only(
-                top: 5.0, bottom: 5.0, right: 10.0, left: 10.0),
+            contentPadding:
+                EdgeInsets.only(top: 5.0, bottom: 5.0, right: 10.0, left: 10.0),
             title: _buildTitle(root),
             subtitle: _buildSubTitle(root),
             onTap: () {
@@ -267,8 +271,8 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
             overflow: TextOverflow.ellipsis,
             softWrap: false,
             style: shouldApplySelection(root)
-                ? TextStyles.titleSelected
-                : TextStyles.title,
+                ? widget.titleSelectedStyle ?? TextStyles.titleSelected
+                : widget.titleStyle ?? TextStyles.title,
           ),
         ),
         widget.trailingIcon != null
@@ -296,8 +300,8 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
               overflow: TextOverflow.ellipsis,
               softWrap: false,
               style: shouldApplySelection(root)
-                  ? TextStyles.subTitleSelected
-                  : TextStyles.subTitle,
+                  ? widget.subTitleSelectedStyle ?? TextStyles.subTitleSelected
+                  : widget.subTitleStyle ?? TextStyles.subTitle,
             ),
           ),
           root.children.length > 0
