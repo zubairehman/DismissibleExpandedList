@@ -28,3 +28,7 @@
 
 ## [0.1.0] - 29-Aug-2019
 * fixed crash issue on toggling a parent with no child
+
+## [0.1.1] - 02-Sep-2019
+* fixed tile height
+* added support for title and subtitle styles
