@@ -144,7 +144,7 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
                 (childIndex, entry) => MapEntry(
                   childIndex,
                   Container(
-                    height: 100.0,
+                    height: 90.0,
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: <Widget>[
@@ -208,7 +208,7 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
         widget.showInfoBadge ? _buildBadge(root) : SizedBox.shrink(),
         ListTile(
           contentPadding:
-              EdgeInsets.only(top: 10.0, bottom: 10.0, right: 10.0, left: 10.0),
+              EdgeInsets.only(top: 5.0, bottom: 5.0, right: 10.0, left: 10.0),
           title: _buildTitle(root),
           subtitle: _buildSubTitle(root),
           onTap: () {
@@ -238,7 +238,7 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
           widget.showInfoBadge ? _buildBadge(root) : SizedBox.shrink(),
           ListTile(
             contentPadding: EdgeInsets.only(
-                top: 10.0, bottom: 10.0, right: 10.0, left: 10.0),
+                top: 5.0, bottom: 5.0, right: 10.0, left: 10.0),
             title: _buildTitle(root),
             subtitle: _buildSubTitle(root),
             onTap: () {
