@@ -32,3 +32,6 @@
 ## [0.1.1] - 02-Sep-2019
 * fixed tile height
 * added support for title and subtitle styles
+
+## [0.1.2] - 03-Sep-2019
+* add icon color for selected mode
