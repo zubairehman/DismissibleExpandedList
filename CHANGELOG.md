@@ -35,3 +35,6 @@
 
 ## [0.1.2] - 03-Sep-2019
 * add icon color for selected mode
+
+## [0.1.3] - 12-Sep-2019
+* added badgeColor and badgeTextColor in entry

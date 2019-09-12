@@ -1,6 +1,7 @@
 // The entire multilevel list displayed by this app.
 
 import 'package:dismissible_expanded_list/model/entry.dart';
+import 'package:flutter/material.dart';
 
 final List<ExpandableListItem> mockData = <ExpandableListItem>[
   ExpandableListItem(
@@ -9,6 +10,8 @@ final List<ExpandableListItem> mockData = <ExpandableListItem>[
     subTitle: getTextWidget('Subtitle'),
     selected: false,
     badgeText: 'In Progress',
+    badgeColor: Color(0xFFFFFFFF),
+    badgeTextColor: Color(0xFFFF0000),
     children: <ExpandableListItem>[
       ExpandableListItem(
         id: '1.1',

@@ -28,8 +28,6 @@ class DismissibleExpandableList extends StatefulWidget {
   final bool showInfoBadge;
   final Color rightSwipeColor;
   final Color leftSwipeColor;
-  final Color badgeColor;
-  final Color badgeTextColor;
   final Color lineColor;
   final Color selectionColor;
   final Color iconColor;
@@ -59,8 +57,6 @@ class DismissibleExpandableList extends StatefulWidget {
     this.showBorder,
     this.rightSwipeColor = Colors.green,
     this.leftSwipeColor = Colors.red,
-    this.badgeColor,
-    this.badgeTextColor = Colors.black,
     this.trailingIcon,
     this.iconColor = Colors.black,
     this.iconSelectedColor = Colors.black,
@@ -72,7 +68,6 @@ class DismissibleExpandableList extends StatefulWidget {
   }) {
     if (showInfoBadge) {
       assert(entry.badgeText != null);
-      assert(badgeColor != null);
     }
   }
 
@@ -330,7 +325,7 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
         width: widget.badgeWidth,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.only(topRight: Radius.circular(3.0)),
-          color: widget.badgeColor,
+          color: root.badgeColor,
         ),
         padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 2.0),
         child: Text(
@@ -339,7 +334,7 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
           textAlign: TextAlign.center,
           overflow: TextOverflow.ellipsis,
           softWrap: false,
-          style: TextStyle(fontSize: 10.0, color: widget.badgeTextColor),
+          style: TextStyle(fontSize: 10.0, color: root.badgeTextColor),
         ),
       ),
     );
