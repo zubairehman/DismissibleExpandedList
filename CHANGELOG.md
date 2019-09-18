@@ -38,3 +38,6 @@
 
 ## [0.1.3] - 12-Sep-2019
 * added badgeColor and badgeTextColor in entry
+
+## [0.1.4] - 17-Sep-2019
+* added background color support

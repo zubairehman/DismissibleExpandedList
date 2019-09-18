@@ -32,6 +32,7 @@ class DismissibleExpandableList extends StatefulWidget {
   final Color selectionColor;
   final Color iconColor;
   final Color iconSelectedColor;
+  final Color backgroundColor;
   final TextStyle titleStyle;
   final TextStyle subTitleStyle;
   final TextStyle titleSelectedStyle;
@@ -65,6 +66,7 @@ class DismissibleExpandableList extends StatefulWidget {
     this.titleSelectedStyle,
     this.subTitleSelectedStyle,
     this.badgeWidth = 60.0,
+    this.backgroundColor = Colors.white,
   }) {
     if (showInfoBadge) {
       assert(entry.badgeText != null);
@@ -193,10 +195,10 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
       secondaryBackground: Container(color: widget.leftSwipeColor),
       child: Card(
         color: !widget.allowParentSelection && root.children.isNotEmpty
-            ? Colors.white
+            ? widget.backgroundColor
             : root.id != null && root.id == widget.selectedId
                 ? widget.selectionColor
-                : Colors.white,
+                : widget.backgroundColor,
         child: _buildListTile(root, parentIndex, childIndex),
       ),
     );
@@ -230,10 +232,10 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
       ExpandableListItem root, int parentIndex, int childIndex) {
     return Card(
       color: !widget.allowParentSelection && root.children.isNotEmpty
-          ? Colors.white
+          ? widget.backgroundColor
           : root.id != null && root.id == widget.selectedId
               ? widget.selectionColor
-              : Colors.white,
+              : widget.backgroundColor,
       child: Stack(
         children: <Widget>[
           widget.showInfoBadge ? _buildBadge(root) : SizedBox.shrink(),
