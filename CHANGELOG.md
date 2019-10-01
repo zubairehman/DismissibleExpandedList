@@ -41,3 +41,6 @@
 
 ## [0.1.4] - 17-Sep-2019
 * added background color support
+
+## [0.1.5] - 17-Sep-2019
+* added support to change info icon size

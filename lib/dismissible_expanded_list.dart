@@ -19,6 +19,7 @@ const Duration _kExpand = Duration(milliseconds: 200);
 class DismissibleExpandableList extends StatefulWidget {
   final int parentIndex;
   final double badgeWidth;
+  final double infoIconSize;
   final String selectedId;
   final bool removeTileOnDismiss;
   final bool allowBatchSwipe;
@@ -67,6 +68,7 @@ class DismissibleExpandableList extends StatefulWidget {
     this.subTitleSelectedStyle,
     this.badgeWidth = 60.0,
     this.backgroundColor = Colors.white,
+    this.infoIconSize = 15.0,
   }) {
     if (showInfoBadge) {
       assert(entry.badgeText != null);
@@ -277,7 +279,7 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
         widget.trailingIcon != null
             ? Icon(
                 widget.trailingIcon,
-                size: 15.0,
+                size: widget.infoIconSize,
                 color: shouldApplySelection(root)
                     ? widget.iconSelectedColor
                     : widget.iconColor,
