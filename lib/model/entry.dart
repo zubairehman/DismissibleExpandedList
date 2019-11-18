@@ -20,4 +20,11 @@ class ExpandableListItem {
     this.selected = false,
     this.children = const <ExpandableListItem>[],
   });
+
+  reset() {
+    this.selected = false;
+
+    // if there are any children, call rest on them as well
+    this.children.forEach((item) => item.reset());
+  }
 }

@@ -206,7 +206,8 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
         elevation: widget.elevation,
         color: !widget.allowParentSelection && root.children.isNotEmpty
             ? widget.backgroundColor
-            : root.id != null && root.id == widget.selectedId
+//            : root.id != null && root.id == widget.selectedId
+            : root.id != null && root.selected
                 ? widget.selectionColor
                 : widget.backgroundColor,
         child: _buildListTile(root, parentIndex, childIndex),
@@ -244,7 +245,8 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
       elevation: widget.elevation,
       color: !widget.allowParentSelection && root.children.isNotEmpty
           ? widget.backgroundColor
-          : root.id != null && root.id == widget.selectedId
+//          : root.id != null && root.id == widget.selectedId
+          : root.id != null && root.selected
               ? widget.selectionColor
               : widget.backgroundColor,
       child: Stack(
@@ -387,12 +389,15 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
   }
 
   bool shouldExpand(ExpandableListItem root) {
-    return widget.selectedId.split('.')[0] == root.id;
+//    return widget.selectedId.split('.')[0] == root.id;
+    return root.selected;
   }
 
   bool shouldApplySelection(ExpandableListItem root) {
     return widget.allowParentSelection
-        ? root.id == widget.selectedId
-        : root.children.length == 0 && root.id == widget.selectedId;
+//        ? root.id == widget.selectedId
+        ? root.selected
+        : root.children.length == 0 && root.selected;
+//        : root.children.length == 0 && root.id == widget.selectedId;
   }
 }

@@ -97,10 +97,18 @@ class _ExpansionTileSampleState extends State<ExpansionTileSample> {
               if (childIndex == -1) {
                 title = mockData[parentIndex].title;
                 selectedId = mockData[parentIndex].id;
+
+                // setting entry to true
+                mockData.forEach((item) => item.reset());
+                mockData[parentIndex].selected = true;
               } else {
                 selectedId = mockData[parentIndex].children[childIndex].id;
-
                 title = mockData[parentIndex].children[childIndex].title;
+
+                // setting entry to true
+                mockData.forEach((item) => item.reset());
+                mockData[parentIndex].selected = true;
+                mockData[parentIndex].children[childIndex].selected = true;
               }
             });
           },
