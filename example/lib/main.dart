@@ -24,6 +24,7 @@ class ExpansionTileSample extends StatefulWidget {
 class _ExpansionTileSampleState extends State<ExpansionTileSample> {
   String title = 'Not Yet Selected';
   String selectedId = '1';
+  bool removeTileOnDismiss = true;
 
   final List<ExpandableListItem> list = mockData;
 
@@ -75,13 +76,13 @@ class _ExpansionTileSampleState extends State<ExpansionTileSample> {
             color: Colors.black54,
             fontSize: 12.0,
           ),
-          removeTileOnDismiss: false,
+          removeTileOnDismiss: removeTileOnDismiss,
           allowBatchSwipe: true,
-          allowChildSwipe: false,
+          allowChildSwipe: true,
           allowParentSelection: true,
           showBorder: false,
           showInfoBadge: true,
-          selectedId: selectedId,
+//          selectedId: selectedId,
           rightSwipeColor: Colors.green,
           leftSwipeColor: Colors.red,
           lineColor: Colors.grey[400],
@@ -92,25 +93,15 @@ class _ExpansionTileSampleState extends State<ExpansionTileSample> {
           trailingIcon: Icons.info_outline,
           onItemClick: (parentIndex, childIndex, ExpandableListItem item) {
             print('onItemClick called');
-
-            setState(() {
-              if (childIndex == -1) {
-                title = mockData[parentIndex].title;
-                selectedId = mockData[parentIndex].id;
-
-                // setting entry to true
-                mockData.forEach((item) => item.reset());
-                mockData[parentIndex].selected = true;
-              } else {
-                selectedId = mockData[parentIndex].children[childIndex].id;
-                title = mockData[parentIndex].children[childIndex].title;
-
-                // setting entry to true
-                mockData.forEach((item) => item.reset());
-                mockData[parentIndex].selected = true;
-                mockData[parentIndex].children[childIndex].selected = true;
-              }
-            });
+            onItemClick(parentIndex, childIndex);
+          },
+          onItemDismissed:
+              (parentIndex, childIndex, direction, removeTileOnDismiss, item) {
+            if (direction == DismissDirection.endToStart) {
+              onItemDismissed(parentIndex, childIndex);
+            } else {
+              onItemDismissed(parentIndex, childIndex);
+            }
           },
         ),
         itemCount: mockData.length,
@@ -128,6 +119,42 @@ class _ExpansionTileSampleState extends State<ExpansionTileSample> {
             color: Colors.white, borderRadius: BorderRadius.circular(10.0)),
         child: Text(title),
       ),
+    );
+  }
+
+  // general methods:-----------------------------------------------------------
+  void onItemClick(int parentIndex, int childIndex) {
+    setState(
+      () {
+        if (childIndex == -1) {
+          title = mockData[parentIndex].title;
+          selectedId = mockData[parentIndex].id;
+
+          // setting entry to true
+          mockData.forEach((item) => item.reset());
+          mockData[parentIndex].selected = true;
+        } else {
+          selectedId = mockData[parentIndex].children[childIndex].id;
+          title = mockData[parentIndex].children[childIndex].title;
+
+          // setting entry to true
+          mockData.forEach((item) => item.reset());
+          mockData[parentIndex].selected = true;
+          mockData[parentIndex].children[childIndex].selected = true;
+        }
+      },
+    );
+  }
+
+  void onItemDismissed(int parentIndex, int childIndex) {
+    setState(
+      () {
+        if (childIndex == -1) {
+          mockData.removeAt(parentIndex);
+        } else {
+          mockData[parentIndex].children.removeAt(childIndex);
+        }
+      },
     );
   }
 }

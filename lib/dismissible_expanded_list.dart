@@ -10,11 +10,12 @@ import 'package:dismissible_expanded_list/widgets/custom_expansion_tile.dart';
 
 // type defs:-------------------------------------------------------------------
 typedef void OnItemDismissed(
-    int parentIndex,
-    int childIndex,
-    DismissDirection onDismissed,
-    bool removeTileOnDismiss,
-    ExpandableListItem item);
+  int parentIndex,
+  int childIndex,
+  DismissDirection onDismissed,
+  bool removeTileOnDismiss,
+  ExpandableListItem item,
+);
 typedef void OnItemClick(
     int parentIndex, int childIndex, ExpandableListItem item);
 
@@ -26,7 +27,8 @@ class DismissibleExpandableList extends StatefulWidget {
   final double badgeWidth;
   final double infoIconSize;
   final double elevation;
-  final String selectedId;
+
+//  final String selectedId;
   final bool removeTileOnDismiss;
   final bool allowBatchSwipe;
   final bool allowChildSwipe;
@@ -61,7 +63,7 @@ class DismissibleExpandableList extends StatefulWidget {
     this.allowChildSwipe = true,
     this.showInfoBadge = false,
     this.allowParentSelection = false,
-    this.selectedId,
+//    this.selectedId,
     this.showBorder,
     this.rightSwipeColor = Colors.green,
     this.leftSwipeColor = Colors.red,

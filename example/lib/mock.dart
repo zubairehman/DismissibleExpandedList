@@ -57,18 +57,24 @@ final List<ExpandableListItem> mockData = <ExpandableListItem>[
     subTitle: getTextWidget('Subtitle'),
     selected: true,
     badgeText: 'Completed',
+    badgeColor: Color(0xFF44b468),
+    badgeTextColor: Color(0xFFFFFFFF),
     children: <ExpandableListItem>[
       ExpandableListItem(
         id: '2.1',
         title: getTextWidget('Section B0'),
         subTitle: getTextWidget('Subtitle'),
         badgeText: 'In-Progress',
+        badgeColor: Color(0xFFFFE082),
+        badgeTextColor: Color(0xFF000000),
       ),
       ExpandableListItem(
         id: '2.2',
         title: getTextWidget('Section B1'),
         subTitle: getTextWidget('Subtitle'),
         badgeText: 'Problem',
+        badgeColor: Color(0xFFc32d2e),
+        badgeTextColor: Color(0xFFFFFFFF),
       ),
     ],
   ),
@@ -78,6 +84,7 @@ final List<ExpandableListItem> mockData = <ExpandableListItem>[
     subTitle: getTextWidget('Subtitle'),
     badgeText: 'Completed',
     badgeColor: Color(0xFF44b468),
+    badgeTextColor: Color(0xFFFFFFFF),
     children: <ExpandableListItem>[],
   ),
 ];
