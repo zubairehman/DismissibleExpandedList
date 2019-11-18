@@ -152,7 +152,15 @@ class _ExpansionTileSampleState extends State<ExpansionTileSample> {
         if (childIndex == -1) {
           mockData.removeAt(parentIndex);
         } else {
-          mockData[parentIndex].children.removeAt(childIndex);
+
+          // check to see if its the last child
+          // if yes, then remove parent as well
+          // else, only remove child
+          if(mockData[parentIndex].children != null && mockData[parentIndex].children.length > 1) {
+            mockData[parentIndex].children.removeAt(childIndex);
+          } else {
+            mockData.removeAt(parentIndex);
+          }
         }
       },
     );
