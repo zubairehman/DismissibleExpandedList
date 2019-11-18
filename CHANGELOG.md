@@ -44,3 +44,22 @@
 
 ## [0.1.5] - 17-Sep-2019
 * added support to change info icon size
+
+## [0.1.6] - 17-Sep-2019
+* added support to center title if no subtitle is present
+
+## [0.1.7] - 03-Oct-2019
+* fixed subtitle bug
+
+## [0.1.8] - 03-Oct-2019
+* added gesture detector for list item
+
+## [0.1.9] - 03-Oct-2019
+* reverted package
+
+## [0.2.0] - 03-Oct-2019
+* added root object in callback 
+
+## [0.2.1] - 03-Oct-2019
+* added elevation for list tile
+* added card for badge

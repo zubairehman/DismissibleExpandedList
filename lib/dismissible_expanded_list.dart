@@ -9,9 +9,14 @@ import 'package:dismissible_expanded_list/utils/timeline/timeline_painter.dart';
 import 'package:dismissible_expanded_list/widgets/custom_expansion_tile.dart';
 
 // type defs:-------------------------------------------------------------------
-typedef void OnItemDismissed(int parentIndex, int childIndex,
-    DismissDirection onDismissed, bool removeTileOnDismiss);
-typedef void OnItemClick(int parentIndex, int childIndex);
+typedef void OnItemDismissed(
+    int parentIndex,
+    int childIndex,
+    DismissDirection onDismissed,
+    bool removeTileOnDismiss,
+    ExpandableListItem item);
+typedef void OnItemClick(
+    int parentIndex, int childIndex, ExpandableListItem item);
 
 // constants:-------------------------------------------------------------------
 const Duration _kExpand = Duration(milliseconds: 200);
@@ -20,6 +25,7 @@ class DismissibleExpandableList extends StatefulWidget {
   final int parentIndex;
   final double badgeWidth;
   final double infoIconSize;
+  final double elevation;
   final String selectedId;
   final bool removeTileOnDismiss;
   final bool allowBatchSwipe;
@@ -69,6 +75,7 @@ class DismissibleExpandableList extends StatefulWidget {
     this.badgeWidth = 60.0,
     this.backgroundColor = Colors.white,
     this.infoIconSize = 15.0,
+    this.elevation,
   }) {
     if (showInfoBadge) {
       assert(entry.badgeText != null);
@@ -188,14 +195,15 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
       // Provide a function that tells the app
       // what to do after an item has been swiped away.
       confirmDismiss: (direction) async {
-        widget.onItemDismissed(
-            parentIndex, childIndex, direction, widget.removeTileOnDismiss);
+        widget.onItemDismissed(parentIndex, childIndex, direction,
+            widget.removeTileOnDismiss, root);
         return widget.removeTileOnDismiss;
       },
       // Show a red background as the item is swiped away.
       background: Container(color: widget.rightSwipeColor),
       secondaryBackground: Container(color: widget.leftSwipeColor),
       child: Card(
+        elevation: widget.elevation,
         color: !widget.allowParentSelection && root.children.isNotEmpty
             ? widget.backgroundColor
             : root.id != null && root.id == widget.selectedId
@@ -217,7 +225,7 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
           title: _buildTitle(root),
           subtitle: _buildSubTitle(root),
           onTap: () {
-            widget.onItemClick(parentIndex, childIndex);
+            widget.onItemClick(parentIndex, childIndex, root);
 
             //only collapse if its a parent
             if (!root.id.contains('.') && root.children.isNotEmpty) {
@@ -233,6 +241,7 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
   Widget _buildListTileCard(
       ExpandableListItem root, int parentIndex, int childIndex) {
     return Card(
+      elevation: widget.elevation,
       color: !widget.allowParentSelection && root.children.isNotEmpty
           ? widget.backgroundColor
           : root.id != null && root.id == widget.selectedId
@@ -247,7 +256,7 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
             title: _buildTitle(root),
             subtitle: _buildSubTitle(root),
             onTap: () {
-              widget.onItemClick(parentIndex, childIndex);
+              widget.onItemClick(parentIndex, childIndex, root);
 
               //only collapse if its a parent
               if (!root.id.contains('.') && root.children.isNotEmpty) {
@@ -325,20 +334,25 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
   Widget _buildBadge(ExpandableListItem root) {
     return Align(
       alignment: Alignment.topRight,
-      child: Container(
-        width: widget.badgeWidth,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.only(topRight: Radius.circular(3.0)),
-          color: root.badgeColor,
-        ),
-        padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 2.0),
-        child: Text(
-          root.badgeText,
-          maxLines: 1,
-          textAlign: TextAlign.center,
-          overflow: TextOverflow.ellipsis,
-          softWrap: false,
-          style: TextStyle(fontSize: 10.0, color: root.badgeTextColor),
+      child: Card(
+        margin: EdgeInsets.all(0.0),
+        shape: ContinuousRectangleBorder(),
+        child: Container(
+          width: widget.badgeWidth,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.only(topRight: Radius.circular(3.0)),
+//          border: Border.all(color: Colors.grey[100]),
+            color: root.badgeColor,
+          ),
+          padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 2.0),
+          child: Text(
+            root.badgeText,
+            maxLines: 1,
+            textAlign: TextAlign.center,
+            overflow: TextOverflow.ellipsis,
+            softWrap: false,
+            style: TextStyle(fontSize: 10.0, color: root.badgeTextColor),
+          ),
         ),
       ),
     );

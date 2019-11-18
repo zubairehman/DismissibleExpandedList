@@ -7,32 +7,47 @@ final List<ExpandableListItem> mockData = <ExpandableListItem>[
   ExpandableListItem(
     id: '1',
     title: getTextWidget('Chapter A'),
-    subTitle: getTextWidget('Subtitle'),
+    subTitle: getTextWidget(''),
     selected: false,
     badgeText: 'In Progress',
-    badgeColor: Color(0xFFFFFFFF),
-    badgeTextColor: Color(0xFFFF0000),
+    badgeColor: Color(0xFFFFE082),
+    badgeTextColor: Color(0xFF000000),
     children: <ExpandableListItem>[
       ExpandableListItem(
         id: '1.1',
         title: getTextWidget('Section A0'),
         subTitle: getTextWidget('Subtitle'),
         selected: false,
-        badgeText: 'In-Progress Not Started',
+        badgeText: 'Not Started',
+        badgeColor: Color(0xFFFFE082),
+        badgeTextColor: Color(0xFF000000),
       ),
       ExpandableListItem(
         id: '1.2',
         title: getTextWidget('Section A1'),
         subTitle: getTextWidget('Subtitle'),
         selected: false,
-        badgeText: 'In-Progress Not Started',
+        badgeText: 'In-Progress',
+        badgeColor: Color(0xFFFFE082),
+        badgeTextColor: Color(0xFF000000),
       ),
       ExpandableListItem(
         id: '1.3',
         title: getTextWidget('Section A2'),
         subTitle: getTextWidget('Subtitle'),
         selected: false,
-        badgeText: 'In-Progress Not Started',
+        badgeText: 'Completed',
+        badgeColor: Color(0xFF44b468),
+        badgeTextColor: Color(0xFFFFFFFF),
+      ),
+      ExpandableListItem(
+        id: '1.3',
+        title: getTextWidget('Section A2'),
+        subTitle: getTextWidget('Subtitle'),
+        selected: false,
+        badgeText: 'Problem',
+        badgeColor: Color(0xFFc32d2e),
+        badgeTextColor: Color(0xFFFFFFFF),
       ),
     ],
   ),
@@ -41,53 +56,19 @@ final List<ExpandableListItem> mockData = <ExpandableListItem>[
     title: getTextWidget('Chapter B'),
     subTitle: getTextWidget('Subtitle'),
     selected: false,
-    badgeText: 'In-Progress Not Started',
-
+    badgeText: 'Completed',
     children: <ExpandableListItem>[
       ExpandableListItem(
         id: '2.1',
         title: getTextWidget('Section B0'),
         subTitle: getTextWidget('Subtitle'),
-        badgeText: 'In-Progress Not Started',
-
+        badgeText: 'In-Progress',
       ),
       ExpandableListItem(
         id: '2.2',
         title: getTextWidget('Section B1'),
         subTitle: getTextWidget('Subtitle'),
-        badgeText: 'In-Progress Not Started',
-
-      ),
-    ],
-  ),
-  ExpandableListItem(
-    id: '3',
-    title: getTextWidget('Chapter C'),
-    subTitle: getTextWidget('Subtitle'),
-    selected: false,
-    badgeText: 'In-Progress Not Started',
-
-    children: <ExpandableListItem>[
-      ExpandableListItem(
-        id: '3.1',
-        title: getTextWidget('Section C0'),
-        subTitle: getTextWidget('Subtitle'),
-        badgeText: 'In-Progress Not Started',
-
-      ),
-      ExpandableListItem(
-        id: '3.2',
-        title: getTextWidget('Section C1'),
-        subTitle: getTextWidget('Subtitle'),
-        badgeText: 'In-Progress Not Started',
-
-      ),
-      ExpandableListItem(
-        id: '3.3',
-        title: getTextWidget('Section C2'),
-        subTitle: getTextWidget('Subtitle'),
-        badgeText: 'In-Progress Not Started',
-
+        badgeText: 'Problem',
       ),
     ],
   ),
@@ -95,11 +76,12 @@ final List<ExpandableListItem> mockData = <ExpandableListItem>[
     id: '4',
     title: getTextWidget('Chapter D'),
     subTitle: getTextWidget('Subtitle'),
-    badgeText: 'In-Progress Not Started',
+    badgeText: 'Completed',
+    badgeColor: Color(0xFF44b468),
     children: <ExpandableListItem>[],
   ),
 ];
 
 String getTextWidget(String text) {
-  return text + ' and some more text';
+  return text;
 }
