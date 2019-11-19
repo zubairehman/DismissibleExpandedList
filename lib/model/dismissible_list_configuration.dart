@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class DismissibleListConfig {
   var badgeWidth = 80.0;
   var listElevation = 3.0;
-  var infoBadgeElevation = 3.0;
+  var infoBadgeElevation = 0.0;
   var infoIconSize = 15.0;
   var removeTileOnDismiss = true;
   var allowBatchSwipe = true;

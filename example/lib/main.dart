@@ -58,7 +58,7 @@ class _ExpansionTileSampleState extends State<ExpansionTileSample> {
       ..listElevation = 3.0
       ..infoBadgeElevation = 0.0
       ..infoIconSize = 15.0
-      ..removeTileOnDismiss = true
+      ..removeTileOnDismiss = false
       ..allowBatchSwipe = true
       ..allowChildSwipe = true
       ..allowParentSelection = true
@@ -92,9 +92,9 @@ class _ExpansionTileSampleState extends State<ExpansionTileSample> {
           onItemDismissed:
               (parentIndex, childIndex, direction, removeTileOnDismiss, item) {
             if (direction == DismissDirection.endToStart) {
-              onItemDismissed(parentIndex, childIndex);
+              onItemDismissed(parentIndex, childIndex, removeTileOnDismiss);
             } else {
-              onItemDismissed(parentIndex, childIndex);
+              onItemDismissed(parentIndex, childIndex, removeTileOnDismiss);
             }
           },
         ),
@@ -140,21 +140,30 @@ class _ExpansionTileSampleState extends State<ExpansionTileSample> {
     );
   }
 
-  void onItemDismissed(int parentIndex, int childIndex) {
+  void onItemDismissed(int parentIndex, int childIndex, bool removeTileOnDismiss) {
     setState(
       () {
-        if (childIndex == -1) {
-          mockData.removeAt(parentIndex);
-        } else {
-          // check to see if its the last child
-          // if yes, then remove parent as well
-          // else, only remove child
-          if (mockData[parentIndex].children != null &&
-              mockData[parentIndex].children.length > 1) {
-            mockData[parentIndex].children.removeAt(childIndex);
-          } else {
+
+        // check to see if user wants to remove swiped items from list
+        // if yes then remove item from list
+        // else show user a message about swiped item
+        if(removeTileOnDismiss) {
+          if (childIndex == -1) {
             mockData.removeAt(parentIndex);
+          } else {
+            // check to see if its the last child
+            // if yes, then remove parent as well
+            // else, only remove child
+            if (mockData[parentIndex].children != null &&
+                mockData[parentIndex].children.length > 1) {
+              mockData[parentIndex].children.removeAt(childIndex);
+            } else {
+              mockData.removeAt(parentIndex);
+            }
           }
+
+        } else {
+          // show user a message that item has been swiped
         }
       },
     );
