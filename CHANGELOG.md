@@ -68,3 +68,10 @@
 * added configurations
 * refactored code
 * updated readme.md file
+
+## [0.2.3] - 11-Nov-2019
+* refactored imports
+* updated readme.md file
+
+## [0.2.4] - 11-Nov-2019
+* added data types for config 

@@ -74,9 +74,9 @@ class TimelinePainter extends CustomPainter {
       canvas.drawLine(offsetTopCenter, renderOffset, lineStroke);
     }
 
-    Paint circleFill = Paint()
-      ..color = lineColor
-      ..style = PaintingStyle.fill;
+//    Paint circleFill = Paint()
+//      ..color = lineColor
+//      ..style = PaintingStyle.fill;
 
     canvas.drawLine(size.center(Offset(0.0, -4.0)),
         size.center(Offset(16.0, -4.0)), lineStroke);

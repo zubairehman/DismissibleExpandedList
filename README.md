@@ -6,7 +6,7 @@ A Flutter package to provide dismissible and expanded list.
 
 Dismissible Expanded List is written in dart. It provides us an ability to display hierarchical data in the form of list as well as allowing us to swipe the individual tiles. Tapping a tile expands or collapses the view of its children. When a tile is collapsed its children are disposed so that the widget footprint of the list only reflects what’s visible. 
 
-User can enable/disable swipe functionality for parent or child by providing simple configurations. A complete list of configurable params are mentioned below.
+User can enable/disable swipe functionality for parent or child items by providing simple configurations. A complete list of configurable params is mentioned below.
 
 Use this package as a library
 -----------------------------
@@ -74,30 +74,30 @@ How to Configure
 ----------------
 
 ```dart
- /// Configuration example
-    DismissibleListConfig config = DismissibleListConfig()
-      ..badgeWidth = 80.0
-      ..listElevation = 3.0
-      ..infoBadgeElevation = 0.0
-      ..infoIconSize = 15.0
-      ..removeTileOnDismiss = false
-      ..allowBatchSwipe = true
-      ..allowChildSwipe = true
-      ..allowParentSelection = true
-      ..showBorder = false
-      ..showInfoBadge = true
-      ..titleStyle = TextStyles.title
-      ..titleSelectedStyle = TextStyles.titleSelected
-      ..subTitleStyle = TextStyles.subTitle
-      ..subTitleSelectedStyle = TextStyles.subTitleSelected
-      ..trailingIcon = Icons.info_outline
-      ..lineColor = Colors.grey[400]
-      ..selectionColor = Color(0xFFcee9f0)
-      ..rightSwipeColor = Colors.green
-      ..leftSwipeColor = Colors.red
-      ..iconColor = Colors.black87
-      ..iconSelectedColor = Colors.black87
-      ..backgroundColor = Colors.white;
+/// Configuration example
+DismissibleListConfig config = DismissibleListConfig()
+  ..badgeWidth = 80.0
+  ..listElevation = 3.0
+  ..infoBadgeElevation = 0.0
+  ..infoIconSize = 15.0
+  ..removeTileOnDismiss = false
+  ..allowBatchSwipe = true
+  ..allowChildSwipe = true
+  ..allowParentSelection = true
+  ..showBorder = false
+  ..showInfoBadge = true
+  ..titleStyle = TextStyles.title
+  ..titleSelectedStyle = TextStyles.titleSelected
+  ..subTitleStyle = TextStyles.subTitle
+  ..subTitleSelectedStyle = TextStyles.subTitleSelected
+  ..trailingIcon = Icons.info_outline
+  ..lineColor = Colors.grey[400]
+  ..selectionColor = Color(0xFFcee9f0)
+  ..rightSwipeColor = Colors.green
+  ..leftSwipeColor = Colors.red
+  ..iconColor = Colors.black87
+  ..iconSelectedColor = Colors.black87
+  ..backgroundColor = Colors.white;
 ```
 
 List of params
