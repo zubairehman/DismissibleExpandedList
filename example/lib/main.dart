@@ -61,7 +61,7 @@ class _ExpansionTileSampleState extends State<ExpansionTileSample> {
       ..allowBatchSwipe = true
       ..allowChildSwipe = true
       ..allowParentSelection = true
-      ..showBorder = true
+      ..showBorder = false
       ..showInfoBadge = true
       ..titleStyle = TextStyles.title
       ..titleSelectedStyle = TextStyles.titleSelected

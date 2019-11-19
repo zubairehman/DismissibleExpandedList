@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b4d8efa4-a60c-4b5f-aa90-80f2ab762c57" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/constants/text_styles.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/constants/text_styles.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/dismissible_expanded_list.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dismissible_expanded_list.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/model/dismissible_list_configuration.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/model/dismissible_list_configuration.dart" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,11 +30,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/example/lib/main.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="54" column="29" lean-forward="true" selection-start-line="54" selection-start-column="29" selection-end-line="54" selection-end-column="29" />
+            <state relative-caret-position="286">
+              <caret line="63" column="26" selection-start-line="63" selection-start-column="26" selection-end-line="63" selection-end-column="26" />
               <folding>
                 <element signature="e#0#70#0" expanded="true" />
               </folding>
@@ -43,11 +42,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/dismissible_expanded_list.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="129">
-              <caret line="95" column="171" selection-start-line="95" selection-start-column="171" selection-end-line="95" selection-end-column="171" />
+            <state relative-caret-position="198">
+              <caret line="57" column="31" selection-start-line="57" selection-start-column="22" selection-end-line="57" selection-end-column="45" />
               <folding>
                 <element signature="e#131#201#0" expanded="true" />
               </folding>
@@ -112,9 +111,9 @@
         <option value="$PROJECT_DIR$/lib/model/entry.dart" />
         <option value="$PROJECT_DIR$/example/lib/mock.dart" />
         <option value="$PROJECT_DIR$/lib/model/dismissible_list_configuration.dart" />
-        <option value="$PROJECT_DIR$/lib/dismissible_expanded_list.dart" />
         <option value="$PROJECT_DIR$/lib/constants/text_styles.dart" />
         <option value="$PROJECT_DIR$/example/lib/main.dart" />
+        <option value="$PROJECT_DIR$/lib/dismissible_expanded_list.dart" />
       </list>
     </option>
   </component>
@@ -346,7 +345,21 @@
       <option name="project" value="LOCAL" />
       <updated>1574080557923</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="- added configuration example&#10;- added configurations">
+      <created>1574139226563</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1574139226563</updated>
+    </task>
+    <task id="LOCAL-00023" summary="- removed un-used commented code">
+      <created>1574139296699</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1574139296699</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -429,7 +442,9 @@
     <MESSAGE value="- refactored main.dart&#10;- added onItemDismissed method" />
     <MESSAGE value="- refactored main.dart" />
     <MESSAGE value="- added dismissible list configuration" />
-    <option name="LAST_COMMIT_MESSAGE" value="- added dismissible list configuration" />
+    <MESSAGE value="- added configuration example&#10;- added configurations" />
+    <MESSAGE value="- removed un-used commented code" />
+    <option name="LAST_COMMIT_MESSAGE" value="- removed un-used commented code" />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
@@ -564,16 +579,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/dismissible_expanded_list.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="95" column="171" selection-start-line="95" selection-start-column="171" selection-end-line="95" selection-end-column="171" />
-          <folding>
-            <element signature="e#131#201#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/model/dismissible_list_configuration.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -586,10 +591,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/example/lib/main.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="54" column="29" lean-forward="true" selection-start-line="54" selection-start-column="29" selection-end-line="54" selection-end-column="29" />
+        <state relative-caret-position="286">
+          <caret line="63" column="26" selection-start-line="63" selection-start-column="26" selection-end-line="63" selection-end-column="26" />
           <folding>
             <element signature="e#0#70#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/dismissible_expanded_list.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="57" column="31" selection-start-line="57" selection-start-column="22" selection-end-line="57" selection-end-column="45" />
+          <folding>
+            <element signature="e#131#201#0" expanded="true" />
           </folding>
         </state>
       </provider>

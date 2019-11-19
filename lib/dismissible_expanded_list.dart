@@ -54,8 +54,8 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
   final GlobalKey<CustomExpansionTileState> _expansionTile = new GlobalKey();
 
   // animation variables:-------------------------------------------------------
-  AnimationController _controller;
-  AnimationController _controller1;
+  AnimationController _expandCollapseController;
+  AnimationController _iconAnimationController;
   Animation<double> _iconTurns;
   bool _isExpanded = false;
   static final Animatable<double> _easeInTween =
@@ -66,19 +66,19 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(duration: _kExpand, vsync: this);
-    _controller1 = AnimationController(duration: _kExpand, vsync: this);
-    _iconTurns = _controller1.drive(_halfTween.chain(_easeInTween));
-    _controller.forward();
+    _expandCollapseController = AnimationController(duration: _kExpand, vsync: this);
+    _iconAnimationController = AnimationController(duration: _kExpand, vsync: this);
+    _iconTurns = _iconAnimationController.drive(_halfTween.chain(_easeInTween));
+    _expandCollapseController.forward();
     _isExpanded = PageStorage.of(context)?.readState(context) ?? false;
-    if (_isExpanded) _controller1.value = 1.0;
+    if (_isExpanded) _iconAnimationController.value = 1.0;
     onExpansionChange(true);
   }
 
   @override
   void dispose() {
-    _controller.dispose();
-    _controller1.dispose();
+    _expandCollapseController.dispose();
+    _iconAnimationController.dispose();
     super.dispose();
   }
 
@@ -124,7 +124,7 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
                         AnimatedBuilder(
                           builder: (BuildContext context, Widget child) =>
                               _buildLine(childIndex),
-                          animation: _controller,
+                          animation: _expandCollapseController,
                         ),
                         Expanded(
                           child: widget.config.allowChildSwipe
@@ -261,7 +261,7 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
 
   Widget _buildSubTitle(ExpandableListItem root) {
     return AnimatedBuilder(
-      animation: _controller.view,
+      animation: _expandCollapseController.view,
       builder: (BuildContext context, Widget child) => Row(
         children: <Widget>[
           Expanded(
@@ -303,7 +303,6 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
           width: widget.config.badgeWidth,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.only(topRight: Radius.circular(3.0)),
-//          border: Border.all(color: Colors.grey[100]),
             color: root.badgeColor,
           ),
           padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 2.0),
@@ -329,7 +328,7 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
             backgroundColor: Colors.blue,
             firstElement: index == 0,
             lastElement: widget.entry.children.length == index + 1,
-            controller: _controller),
+            controller: _expandCollapseController),
       ),
     );
   }
@@ -338,9 +337,9 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
   void onExpansionChange(bool isExpanded) {
     _isExpanded = isExpanded;
     if (_isExpanded)
-      _controller1.forward();
+      _iconAnimationController.forward();
     else
-      _controller1.reverse().then<void>((dynamic value) {
+      _iconAnimationController.reverse().then<void>((dynamic value) {
         setState(() {
           // Rebuild without widget.children.
         });
