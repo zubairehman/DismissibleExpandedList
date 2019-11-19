@@ -8,6 +8,16 @@ Dismissible Expanded List is written in dart. It provides us an ability to displ
 
 User can enable/disable swipe functionality for parent or child items by providing simple configurations. A complete list of configurable params is mentioned below.
 
+## Demo
+
+<p>
+  <img src="Screenshot_20191119-125107.jpg">
+</p>
+
+<p>
+  <img src="Screenshot_20191119-125113.jpg">
+</p>
+
 Use this package as a library
 -----------------------------
 
