@@ -98,56 +98,6 @@ class _ExpansionTileSampleState extends State<ExpansionTileSample> {
             }
           },
         ),
-//            DismissibleExpandableList(
-//          parentIndex: index,
-//          entry: list[index],
-//          elevation: 3.0,
-//          titleStyle: TextStyle(
-//            fontSize: 15.0,
-//            fontWeight: FontWeight.bold,
-//            color: Colors.black87,
-//          ),
-//          titleSelectedStyle: TextStyle(
-//            fontSize: 15.0,
-//            fontWeight: FontWeight.bold,
-//            color: Colors.black87,
-//          ),
-//          subTitleStyle: TextStyle(
-//            color: Colors.black54,
-//            fontSize: 12.0,
-//          ),
-//          subTitleSelectedStyle: TextStyle(
-//            color: Colors.black54,
-//            fontSize: 12.0,
-//          ),
-//          removeTileOnDismiss: removeTileOnDismiss,
-//          allowBatchSwipe: true,
-//          allowChildSwipe: true,
-//          allowParentSelection: true,
-//          showBorder: false,
-//          showInfoBadge: true,
-////          selectedId: selectedId,
-//          rightSwipeColor: Colors.green,
-//          leftSwipeColor: Colors.red,
-//          lineColor: Colors.grey[400],
-//          badgeWidth: 80.0,
-//          iconColor: Colors.black87,
-//          iconSelectedColor: Colors.black87,
-//          selectionColor: Color(0xFFcee9f0),
-//          trailingIcon: Icons.info_outline,
-//          onItemClick: (parentIndex, childIndex, ExpandableListItem item) {
-//            print('onItemClick called');
-//            onItemClick(parentIndex, childIndex);
-//          },
-//          onItemDismissed:
-//              (parentIndex, childIndex, direction, removeTileOnDismiss, item) {
-//            if (direction == DismissDirection.endToStart) {
-//              onItemDismissed(parentIndex, childIndex);
-//            } else {
-//              onItemDismissed(parentIndex, childIndex);
-//            }
-//          },
-//        ),
         itemCount: mockData.length,
       ),
     );
