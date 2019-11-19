@@ -1,9 +1,6 @@
-import 'package:dismissible_expanded_list/constants/text_styles.dart';
-import 'package:dismissible_expanded_list/widgets/dismissible_expanded_list_widget.dart';
-import 'package:dismissible_expanded_list/model/entry.dart';
 import 'package:example/mock.dart';
 import 'package:flutter/material.dart';
-import 'package:dismissible_expanded_list/model/dismissible_list_configuration.dart';
+import 'package:dismissible_expanded_list/dismissible_expanded_list.dart';
 
 void main() {
   runApp(MyApp());
