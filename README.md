@@ -1,8 +1,10 @@
-# dismissible_expanded_list
+# Dismissible Expanded List
 
-A Flutter package to provided dismissible and expanded list.
+A Flutter package to provide dismissible and expanded list.
 
 ## Getting Started
+
+Dismissible Expanded list is written in dart. It provides us an ability to display hierarchical data in the form of list as well as allowing us to swipe the individual tiles. Tapping a tile expands or collapses the view of its children. When a tile is collapsed its children are disposed so that the widget footprint of the list only reflects what’s visible.
 
 Use this package as a library
 -----------------------------
