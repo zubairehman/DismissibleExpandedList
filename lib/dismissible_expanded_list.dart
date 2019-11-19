@@ -30,62 +30,6 @@ class DismissibleExpandableList extends StatefulWidget {
   final ExpandableListItem entry;
   final DismissibleListConfig config;
 
-//  final double badgeWidth;
-//  final double infoIconSize;
-//  final double elevation;
-////  final String selectedId;
-//  final bool removeTileOnDismiss;
-//  final bool allowBatchSwipe;
-//  final bool allowChildSwipe;
-//  final bool allowParentSelection;
-//  final bool showBorder;
-//  final bool showInfoBadge;
-//  final Color rightSwipeColor;
-//  final Color leftSwipeColor;
-//  final Color lineColor;
-//  final Color selectionColor;
-//  final Color iconColor;
-//  final Color iconSelectedColor;
-//  final Color backgroundColor;
-//  final TextStyle titleStyle;
-//  final TextStyle subTitleStyle;
-//  final TextStyle titleSelectedStyle;
-//  final TextStyle subTitleSelectedStyle;
-//  final IconData trailingIcon;
-
-//  DismissibleExpandableList({
-//    @required this.entry,
-//    @required this.lineColor,
-//    @required this.parentIndex,
-//    @required this.selectionColor,
-//    this.onItemDismissed,
-//    this.onItemClick,
-//    this.removeTileOnDismiss = true,
-//    this.allowBatchSwipe = false,
-//    this.allowChildSwipe = true,
-//    this.showInfoBadge = false,
-//    this.allowParentSelection = false,
-////    this.selectedId,
-//    this.showBorder,
-//    this.rightSwipeColor = Colors.green,
-//    this.leftSwipeColor = Colors.red,
-//    this.trailingIcon,
-//    this.iconColor = Colors.black,
-//    this.iconSelectedColor = Colors.black,
-//    this.titleStyle,
-//    this.subTitleStyle,
-//    this.titleSelectedStyle,
-//    this.subTitleSelectedStyle,
-//    this.badgeWidth = 60.0,
-//    this.backgroundColor = Colors.white,
-//    this.infoIconSize = 15.0,
-//    this.elevation,
-//  }) {
-//    if (showInfoBadge) {
-//      assert(entry.badgeText != null);
-//    }
-//  }
-
   DismissibleExpandableList({
     @required this.entry,
     @required this.parentIndex,
@@ -223,7 +167,6 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
         elevation: widget.config.elevation,
         color: !widget.config.allowParentSelection && root.children.isNotEmpty
             ? widget.config.backgroundColor
-//            : root.id != null && root.id == widget.selectedId
             : root.id != null && root.selected
                 ? widget.config.selectionColor
                 : widget.config.backgroundColor,
@@ -262,7 +205,6 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
       elevation: widget.config.elevation,
       color: !widget.config.allowParentSelection && root.children.isNotEmpty
           ? widget.config.backgroundColor
-//          : root.id != null && root.id == widget.selectedId
           : root.id != null && root.selected
               ? widget.config.selectionColor
               : widget.config.backgroundColor,
@@ -407,15 +349,12 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
   }
 
   bool shouldExpand(ExpandableListItem root) {
-//    return widget.selectedId.split('.')[0] == root.id;
     return root.selected;
   }
 
   bool shouldApplySelection(ExpandableListItem root) {
     return widget.config.allowParentSelection
-//        ? root.id == widget.selectedId
         ? root.selected
         : root.children.length == 0 && root.selected;
-//        : root.children.length == 0 && root.id == widget.selectedId;
   }
 }
