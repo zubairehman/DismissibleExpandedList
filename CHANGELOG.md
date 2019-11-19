@@ -63,3 +63,8 @@
 ## [0.2.1] - 03-Oct-2019
 * added elevation for list tile
 * added card for badge
+
+## [0.2.2] - 11-Nov-2019
+* added configurations
+* refactored code
+* updated readme.md file

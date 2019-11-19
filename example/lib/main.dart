@@ -1,5 +1,5 @@
 import 'package:dismissible_expanded_list/constants/text_styles.dart';
-import 'package:dismissible_expanded_list/dismissible_expanded_list.dart';
+import 'package:dismissible_expanded_list/widgets/dismissible_expanded_list_widget.dart';
 import 'package:dismissible_expanded_list/model/entry.dart';
 import 'package:example/mock.dart';
 import 'package:flutter/material.dart';
@@ -140,14 +140,14 @@ class _ExpansionTileSampleState extends State<ExpansionTileSample> {
     );
   }
 
-  void onItemDismissed(int parentIndex, int childIndex, bool removeTileOnDismiss) {
+  void onItemDismissed(
+      int parentIndex, int childIndex, bool removeTileOnDismiss) {
     setState(
       () {
-
         // check to see if user wants to remove swiped items from list
         // if yes then remove item from list
         // else show user a message about swiped item
-        if(removeTileOnDismiss) {
+        if (removeTileOnDismiss) {
           if (childIndex == -1) {
             mockData.removeAt(parentIndex);
           } else {
@@ -161,7 +161,6 @@ class _ExpansionTileSampleState extends State<ExpansionTileSample> {
               mockData.removeAt(parentIndex);
             }
           }
-
         } else {
           // show user a message that item has been swiped
         }
