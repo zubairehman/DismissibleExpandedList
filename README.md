@@ -11,7 +11,7 @@ User can enable/disable swipe functionality for parent or child items by providi
 ## Demo
 
 <p>
-  <img src="screenshots/Screenshot_20191119-125107.jpg height="300">
+  <img src="screenshots/Screenshot_20191119-125107.jpg" width="300">
   <img src="screenshots/Screenshot_20191119-125113.jpg">
   <img src="screenshots/Screenshot_20191119-130415.jpg">
   <img src="screenshots/Screenshot_20191119-130427.jpg">
