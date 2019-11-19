@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b4d8efa4-a60c-4b5f-aa90-80f2ab762c57" name="Default Changelist" comment="" />
+    <list default="true" id="b4d8efa4-a60c-4b5f-aa90-80f2ab762c57" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/screenshots/Screenshot_20191119-130415.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/screenshots/Screenshot_20191119-130427.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,8 +32,15 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../../../../../AndroidStudio/DeviceExplorer/huawei-ldn_l21-26EBB18C09159235/storage/sdcard0/Pictures/Screenshots/Screenshot_20191119-125113.jpg">
-          <provider selected="true" editor-type-id="images" />
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="15" column="54" selection-start-line="15" selection-start-column="54" selection-end-line="15" selection-end-column="54" />
+              <folding>
+                <element signature="e#0#70#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -78,7 +90,6 @@
         <option value="$PROJECT_DIR$/lib/constants/text_styles.dart" />
         <option value="$PROJECT_DIR$/lib/dismissible_expanded_list.dart" />
         <option value="$PROJECT_DIR$/example/lib/main.dart" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/lib/widgets/dismissible_expanded_list_widget.dart" />
         <option value="$PROJECT_DIR$/lib/utils/timeline/timeline_painter.dart" />
         <option value="$PROJECT_DIR$/lib/widgets/custom_expansion_tile.dart" />
@@ -86,6 +97,7 @@
         <option value="$PROJECT_DIR$/CHANGELOG.md" />
         <option value="$PROJECT_DIR$/pubspec.yaml" />
         <option value="$PROJECT_DIR$/example/lib/mock.dart" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -97,10 +109,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1621" />
-    <option name="y" value="216" />
+    <option name="y" value="23" />
     <option name="width" value="1440" />
-    <option name="height" value="822" />
+    <option name="height" value="829" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -121,7 +132,7 @@
             <path>
               <item name="dismissible_expanded_list" type="b2602c69:ProjectViewProjectNode" />
               <item name="dismissible_expanded_list" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="screenshots" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -139,6 +150,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/screenshots" />
       <recent name="$PROJECT_DIR$/lib/widgets" />
     </key>
   </component>
@@ -409,15 +421,28 @@
       <option name="project" value="LOCAL" />
       <updated>1574149673161</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="- added screenshots">
+      <created>1574150113069</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1574150113069</updated>
+    </task>
+    <task id="LOCAL-00036" summary="- added screenshots">
+      <created>1574150622122</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1574150622122</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1673" y="170" width="1440" height="822" extended-state="0" />
-    <editor active="true" />
+    <frame x="0" y="23" width="1440" height="829" extended-state="0" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.23748212" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.23748212" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Designer" order="4" />
@@ -429,10 +454,10 @@
       <window_info anchor="bottom" id="Run" order="1" weight="0.4808219" />
       <window_info anchor="bottom" id="TODO" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4630137" />
-      <window_info anchor="bottom" id="Terminal" order="4" weight="0.32876712" />
+      <window_info anchor="bottom" id="Terminal" order="4" weight="0.33076924" />
       <window_info anchor="bottom" id="Event Log" order="5" side_tool="true" weight="0.32876712" />
       <window_info anchor="bottom" id="Flutter Performance" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32876712" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32866243" />
       <window_info anchor="bottom" id="Messages" order="8" weight="0.32876712" />
       <window_info anchor="bottom" id="Logcat" order="9" />
       <window_info anchor="bottom" id="Android Profiler" order="10" show_stripe_button="false" />
@@ -441,7 +466,7 @@
       <window_info anchor="right" id="Flutter Inspector" order="2" />
       <window_info anchor="right" id="Flutter Outline" order="3" />
       <window_info anchor="right" id="Palette&#9;" order="4" />
-      <window_info active="true" anchor="right" id="Device File Explorer" order="5" side_tool="true" visible="true" weight="0.3297568" />
+      <window_info anchor="right" id="Device File Explorer" order="5" side_tool="true" weight="0.3297568" />
     </layout>
     <layout-to-restore>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
@@ -499,7 +524,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- initial project setup&#10;- completed version 1.0.0" />
     <MESSAGE value="- updated home page" />
     <MESSAGE value="- added batchText in entry &#10;- uploaded new package" />
     <MESSAGE value="- added parent selection&#10;- fixed bugs" />
@@ -524,7 +548,8 @@
     <MESSAGE value="- updated readme.md" />
     <MESSAGE value="- added data types for config" />
     <MESSAGE value="- refactored mock data" />
-    <option name="LAST_COMMIT_MESSAGE" value="- refactored mock data" />
+    <MESSAGE value="- added screenshots" />
+    <option name="LAST_COMMIT_MESSAGE" value="- added screenshots" />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
@@ -628,16 +653,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1455">
-          <caret line="97" column="30" lean-forward="true" selection-start-line="97" selection-start-column="30" selection-end-line="97" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#70#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/example/lib/main.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="62">
@@ -702,6 +717,9 @@
     <entry file="file://$PROJECT_DIR$/../../../../../AndroidStudio/DeviceExplorer/huawei-ldn_l21-26EBB18C09159235/storage/sdcard0/Pictures/Screenshots/Screenshot_20190829-111655.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/../../../../../AndroidStudio/DeviceExplorer/huawei-ldn_l21-26EBB18C09159235/storage/sdcard0/Pictures/Screenshots/Screenshot_20191119-125113.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/example/lib/mock.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -712,8 +730,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../../../../AndroidStudio/DeviceExplorer/huawei-ldn_l21-26EBB18C09159235/storage/sdcard0/Pictures/Screenshots/Screenshot_20191119-125113.jpg">
+    <entry file="file://$PROJECT_DIR$/../../../../../AndroidStudio/DeviceExplorer/huawei-ldn_l21-26EBB18C09159235/storage/sdcard0/Pictures/Screenshots/Screenshot_20191119-130415.jpg">
       <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../../../AndroidStudio/DeviceExplorer/huawei-ldn_l21-26EBB18C09159235/storage/sdcard0/Pictures/Screenshots/Screenshot_20191119-130427.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="54" selection-start-line="15" selection-start-column="54" selection-end-line="15" selection-end-column="54" />
+          <folding>
+            <element signature="e#0#70#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
   </component>
 </project>
