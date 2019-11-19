@@ -3,6 +3,7 @@ library dismissible_expanded_list;
 // Displays one Entry. If the entry has children then it's displayed
 // with an ExpansionTile.
 import 'package:dismissible_expanded_list/constants/text_styles.dart';
+import 'package:dismissible_expanded_list/model/dismissible_list_configuration.dart';
 import 'package:flutter/material.dart';
 import 'package:dismissible_expanded_list/model/entry.dart';
 import 'package:dismissible_expanded_list/utils/timeline/timeline_painter.dart';
@@ -24,62 +25,76 @@ const Duration _kExpand = Duration(milliseconds: 200);
 
 class DismissibleExpandableList extends StatefulWidget {
   final int parentIndex;
-  final double badgeWidth;
-  final double infoIconSize;
-  final double elevation;
-
-//  final String selectedId;
-  final bool removeTileOnDismiss;
-  final bool allowBatchSwipe;
-  final bool allowChildSwipe;
-  final bool allowParentSelection;
-  final bool showBorder;
-  final bool showInfoBadge;
-  final Color rightSwipeColor;
-  final Color leftSwipeColor;
-  final Color lineColor;
-  final Color selectionColor;
-  final Color iconColor;
-  final Color iconSelectedColor;
-  final Color backgroundColor;
-  final TextStyle titleStyle;
-  final TextStyle subTitleStyle;
-  final TextStyle titleSelectedStyle;
-  final TextStyle subTitleSelectedStyle;
-  final IconData trailingIcon;
-  final ExpandableListItem entry;
   final OnItemDismissed onItemDismissed;
   final OnItemClick onItemClick;
+  final ExpandableListItem entry;
+  final DismissibleListConfig config;
+
+//  final double badgeWidth;
+//  final double infoIconSize;
+//  final double elevation;
+////  final String selectedId;
+//  final bool removeTileOnDismiss;
+//  final bool allowBatchSwipe;
+//  final bool allowChildSwipe;
+//  final bool allowParentSelection;
+//  final bool showBorder;
+//  final bool showInfoBadge;
+//  final Color rightSwipeColor;
+//  final Color leftSwipeColor;
+//  final Color lineColor;
+//  final Color selectionColor;
+//  final Color iconColor;
+//  final Color iconSelectedColor;
+//  final Color backgroundColor;
+//  final TextStyle titleStyle;
+//  final TextStyle subTitleStyle;
+//  final TextStyle titleSelectedStyle;
+//  final TextStyle subTitleSelectedStyle;
+//  final IconData trailingIcon;
+
+//  DismissibleExpandableList({
+//    @required this.entry,
+//    @required this.lineColor,
+//    @required this.parentIndex,
+//    @required this.selectionColor,
+//    this.onItemDismissed,
+//    this.onItemClick,
+//    this.removeTileOnDismiss = true,
+//    this.allowBatchSwipe = false,
+//    this.allowChildSwipe = true,
+//    this.showInfoBadge = false,
+//    this.allowParentSelection = false,
+////    this.selectedId,
+//    this.showBorder,
+//    this.rightSwipeColor = Colors.green,
+//    this.leftSwipeColor = Colors.red,
+//    this.trailingIcon,
+//    this.iconColor = Colors.black,
+//    this.iconSelectedColor = Colors.black,
+//    this.titleStyle,
+//    this.subTitleStyle,
+//    this.titleSelectedStyle,
+//    this.subTitleSelectedStyle,
+//    this.badgeWidth = 60.0,
+//    this.backgroundColor = Colors.white,
+//    this.infoIconSize = 15.0,
+//    this.elevation,
+//  }) {
+//    if (showInfoBadge) {
+//      assert(entry.badgeText != null);
+//    }
+//  }
 
   DismissibleExpandableList({
     @required this.entry,
-    @required this.lineColor,
     @required this.parentIndex,
-    @required this.selectionColor,
+    @required this.config,
     this.onItemDismissed,
     this.onItemClick,
-    this.removeTileOnDismiss = true,
-    this.allowBatchSwipe = false,
-    this.allowChildSwipe = true,
-    this.showInfoBadge = false,
-    this.allowParentSelection = false,
-//    this.selectedId,
-    this.showBorder,
-    this.rightSwipeColor = Colors.green,
-    this.leftSwipeColor = Colors.red,
-    this.trailingIcon,
-    this.iconColor = Colors.black,
-    this.iconSelectedColor = Colors.black,
-    this.titleStyle,
-    this.subTitleStyle,
-    this.titleSelectedStyle,
-    this.subTitleSelectedStyle,
-    this.badgeWidth = 60.0,
-    this.backgroundColor = Colors.white,
-    this.infoIconSize = 15.0,
-    this.elevation,
   }) {
-    if (showInfoBadge) {
+    assert(config != null, 'Dismissible List Configuration cannot be null, please provide valid configution using DismissibleExpandableList(config: DismissibleListConfig())');
+    if (config.showInfoBadge) {
       assert(entry.badgeText != null);
     }
   }
@@ -133,7 +148,7 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
 
     // check to see if its a single item with no child
     if (root.children.isEmpty) {
-      return widget.allowBatchSwipe
+      return widget.config.allowBatchSwipe
           ? _buildDismissibleTile(root, parentIndex, -1)
           : _buildListTileCard(root, parentIndex, -1);
     }
@@ -142,14 +157,14 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
       children: <Widget>[
         CustomExpansionTile(
           key: _expansionTile,
-          showBorder: widget.showBorder,
+          showBorder: widget.config.showBorder,
           initiallyExpanded: shouldExpand(root),
           onExpansionChanged: (isExpanded) {
             setState(() {
               onExpansionChange(isExpanded);
             });
           },
-          listTile: widget.allowBatchSwipe
+          listTile: widget.config.allowBatchSwipe
               ? _buildDismissibleTile(root, parentIndex, -1)
               : _buildListTileCard(root, parentIndex, -1),
           children: root.children
@@ -168,7 +183,7 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
                           animation: _controller,
                         ),
                         Expanded(
-                          child: widget.allowChildSwipe
+                          child: widget.config.allowChildSwipe
                               ? _buildDismissibleTile(
                                   entry, parentIndex, childIndex)
                               : _buildListTileCard(
@@ -198,20 +213,20 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
       // what to do after an item has been swiped away.
       confirmDismiss: (direction) async {
         widget.onItemDismissed(parentIndex, childIndex, direction,
-            widget.removeTileOnDismiss, root);
-        return widget.removeTileOnDismiss;
+            widget.config.removeTileOnDismiss, root);
+        return widget.config.removeTileOnDismiss;
       },
       // Show a red background as the item is swiped away.
-      background: Container(color: widget.rightSwipeColor),
-      secondaryBackground: Container(color: widget.leftSwipeColor),
+      background: Container(color: widget.config.rightSwipeColor),
+      secondaryBackground: Container(color: widget.config.leftSwipeColor),
       child: Card(
-        elevation: widget.elevation,
-        color: !widget.allowParentSelection && root.children.isNotEmpty
-            ? widget.backgroundColor
+        elevation: widget.config.elevation,
+        color: !widget.config.allowParentSelection && root.children.isNotEmpty
+            ? widget.config.backgroundColor
 //            : root.id != null && root.id == widget.selectedId
             : root.id != null && root.selected
-                ? widget.selectionColor
-                : widget.backgroundColor,
+                ? widget.config.selectionColor
+                : widget.config.backgroundColor,
         child: _buildListTile(root, parentIndex, childIndex),
       ),
     );
@@ -221,7 +236,7 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
       ExpandableListItem root, int parentIndex, int childIndex) {
     return Stack(
       children: <Widget>[
-        widget.showInfoBadge ? _buildBadge(root) : SizedBox.shrink(),
+        widget.config.showInfoBadge ? _buildBadge(root) : SizedBox.shrink(),
         ListTile(
           contentPadding:
               EdgeInsets.only(top: 5.0, bottom: 5.0, right: 10.0, left: 10.0),
@@ -244,16 +259,16 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
   Widget _buildListTileCard(
       ExpandableListItem root, int parentIndex, int childIndex) {
     return Card(
-      elevation: widget.elevation,
-      color: !widget.allowParentSelection && root.children.isNotEmpty
-          ? widget.backgroundColor
+      elevation: widget.config.elevation,
+      color: !widget.config.allowParentSelection && root.children.isNotEmpty
+          ? widget.config.backgroundColor
 //          : root.id != null && root.id == widget.selectedId
           : root.id != null && root.selected
-              ? widget.selectionColor
-              : widget.backgroundColor,
+              ? widget.config.selectionColor
+              : widget.config.backgroundColor,
       child: Stack(
         children: <Widget>[
-          widget.showInfoBadge ? _buildBadge(root) : SizedBox.shrink(),
+          widget.config.showInfoBadge ? _buildBadge(root) : SizedBox.shrink(),
           ListTile(
             contentPadding:
                 EdgeInsets.only(top: 5.0, bottom: 5.0, right: 10.0, left: 10.0),
@@ -285,17 +300,17 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
             overflow: TextOverflow.ellipsis,
             softWrap: false,
             style: shouldApplySelection(root)
-                ? widget.titleSelectedStyle ?? TextStyles.titleSelected
-                : widget.titleStyle ?? TextStyles.title,
+                ? widget.config.titleSelectedStyle ?? TextStyles.titleSelected
+                : widget.config.titleStyle ?? TextStyles.title,
           ),
         ),
-        widget.trailingIcon != null
+        widget.config.trailingIcon != null
             ? Icon(
-                widget.trailingIcon,
-                size: widget.infoIconSize,
+                widget.config.trailingIcon,
+                size: widget.config.infoIconSize,
                 color: shouldApplySelection(root)
-                    ? widget.iconSelectedColor
-                    : widget.iconColor,
+                    ? widget.config.iconSelectedColor
+                    : widget.config.iconColor,
               )
             : SizedBox.shrink(),
       ],
@@ -314,8 +329,9 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
               overflow: TextOverflow.ellipsis,
               softWrap: false,
               style: shouldApplySelection(root)
-                  ? widget.subTitleSelectedStyle ?? TextStyles.subTitleSelected
-                  : widget.subTitleStyle ?? TextStyles.subTitle,
+                  ? widget.config.subTitleSelectedStyle ??
+                      TextStyles.subTitleSelected
+                  : widget.config.subTitleStyle ?? TextStyles.subTitle,
             ),
           ),
           root.children.length > 0
@@ -325,8 +341,8 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
                     Icons.expand_more,
                     size: 18.0,
                     color: shouldApplySelection(root)
-                        ? widget.iconSelectedColor
-                        : widget.iconColor,
+                        ? widget.config.iconSelectedColor
+                        : widget.config.iconColor,
                   ),
                 )
               : SizedBox.shrink(),
@@ -342,7 +358,7 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
         margin: EdgeInsets.all(0.0),
         shape: ContinuousRectangleBorder(),
         child: Container(
-          width: widget.badgeWidth,
+          width: widget.config.badgeWidth,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.only(topRight: Radius.circular(3.0)),
 //          border: Border.all(color: Colors.grey[100]),
@@ -367,7 +383,7 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
       width: 25.0,
       child: CustomPaint(
         painter: TimelinePainter(
-            lineColor: widget.lineColor,
+            lineColor: widget.config.lineColor,
             backgroundColor: Colors.blue,
             firstElement: index == 0,
             lastElement: widget.entry.children.length == index + 1,
@@ -396,7 +412,7 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
   }
 
   bool shouldApplySelection(ExpandableListItem root) {
-    return widget.allowParentSelection
+    return widget.config.allowParentSelection
 //        ? root.id == widget.selectedId
         ? root.selected
         : root.children.length == 0 && root.selected;

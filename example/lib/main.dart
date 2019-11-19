@@ -1,7 +1,9 @@
+import 'package:dismissible_expanded_list/constants/text_styles.dart';
 import 'package:dismissible_expanded_list/dismissible_expanded_list.dart';
 import 'package:dismissible_expanded_list/model/entry.dart';
 import 'package:example/mock.dart';
 import 'package:flutter/material.dart';
+import 'package:dismissible_expanded_list/model/dismissible_list_configuration.dart';
 
 void main() {
   runApp(MyApp());
@@ -50,6 +52,30 @@ class _ExpansionTileSampleState extends State<ExpansionTileSample> {
   }
 
   Widget _buildRightSide() {
+    /// Configuration example
+    DismissibleListConfig config = DismissibleListConfig()
+      ..badgeWidth = 80.0
+      ..elevation = 3.0
+      ..infoIconSize = 15.0
+      ..removeTileOnDismiss = true
+      ..allowBatchSwipe = true
+      ..allowChildSwipe = true
+      ..allowParentSelection = true
+      ..showBorder = true
+      ..showInfoBadge = true
+      ..titleStyle = TextStyles.title
+      ..titleSelectedStyle = TextStyles.titleSelected
+      ..subTitleStyle = TextStyles.subTitle
+      ..subTitleSelectedStyle = TextStyles.subTitleSelected
+      ..trailingIcon = Icons.info_outline
+      ..lineColor = Colors.grey[400]
+      ..selectionColor = Color(0xFFcee9f0)
+      ..rightSwipeColor = Colors.green
+      ..leftSwipeColor = Colors.red
+      ..iconColor = Colors.black87
+      ..iconSelectedColor = Colors.black87
+      ..backgroundColor = Colors.white;
+
     return Expanded(
       flex: 1,
       child: ListView.builder(
@@ -57,40 +83,7 @@ class _ExpansionTileSampleState extends State<ExpansionTileSample> {
             DismissibleExpandableList(
           parentIndex: index,
           entry: list[index],
-          elevation: 3.0,
-          titleStyle: TextStyle(
-            fontSize: 15.0,
-            fontWeight: FontWeight.bold,
-            color: Colors.black87,
-          ),
-          titleSelectedStyle: TextStyle(
-            fontSize: 15.0,
-            fontWeight: FontWeight.bold,
-            color: Colors.black87,
-          ),
-          subTitleStyle: TextStyle(
-            color: Colors.black54,
-            fontSize: 12.0,
-          ),
-          subTitleSelectedStyle: TextStyle(
-            color: Colors.black54,
-            fontSize: 12.0,
-          ),
-          removeTileOnDismiss: removeTileOnDismiss,
-          allowBatchSwipe: true,
-          allowChildSwipe: true,
-          allowParentSelection: true,
-          showBorder: false,
-          showInfoBadge: true,
-//          selectedId: selectedId,
-          rightSwipeColor: Colors.green,
-          leftSwipeColor: Colors.red,
-          lineColor: Colors.grey[400],
-          badgeWidth: 80.0,
-          iconColor: Colors.black87,
-          iconSelectedColor: Colors.black87,
-          selectionColor: Color(0xFFcee9f0),
-          trailingIcon: Icons.info_outline,
+          config: config,
           onItemClick: (parentIndex, childIndex, ExpandableListItem item) {
             print('onItemClick called');
             onItemClick(parentIndex, childIndex);
@@ -104,6 +97,56 @@ class _ExpansionTileSampleState extends State<ExpansionTileSample> {
             }
           },
         ),
+//            DismissibleExpandableList(
+//          parentIndex: index,
+//          entry: list[index],
+//          elevation: 3.0,
+//          titleStyle: TextStyle(
+//            fontSize: 15.0,
+//            fontWeight: FontWeight.bold,
+//            color: Colors.black87,
+//          ),
+//          titleSelectedStyle: TextStyle(
+//            fontSize: 15.0,
+//            fontWeight: FontWeight.bold,
+//            color: Colors.black87,
+//          ),
+//          subTitleStyle: TextStyle(
+//            color: Colors.black54,
+//            fontSize: 12.0,
+//          ),
+//          subTitleSelectedStyle: TextStyle(
+//            color: Colors.black54,
+//            fontSize: 12.0,
+//          ),
+//          removeTileOnDismiss: removeTileOnDismiss,
+//          allowBatchSwipe: true,
+//          allowChildSwipe: true,
+//          allowParentSelection: true,
+//          showBorder: false,
+//          showInfoBadge: true,
+////          selectedId: selectedId,
+//          rightSwipeColor: Colors.green,
+//          leftSwipeColor: Colors.red,
+//          lineColor: Colors.grey[400],
+//          badgeWidth: 80.0,
+//          iconColor: Colors.black87,
+//          iconSelectedColor: Colors.black87,
+//          selectionColor: Color(0xFFcee9f0),
+//          trailingIcon: Icons.info_outline,
+//          onItemClick: (parentIndex, childIndex, ExpandableListItem item) {
+//            print('onItemClick called');
+//            onItemClick(parentIndex, childIndex);
+//          },
+//          onItemDismissed:
+//              (parentIndex, childIndex, direction, removeTileOnDismiss, item) {
+//            if (direction == DismissDirection.endToStart) {
+//              onItemDismissed(parentIndex, childIndex);
+//            } else {
+//              onItemDismissed(parentIndex, childIndex);
+//            }
+//          },
+//        ),
         itemCount: mockData.length,
       ),
     );
@@ -152,11 +195,11 @@ class _ExpansionTileSampleState extends State<ExpansionTileSample> {
         if (childIndex == -1) {
           mockData.removeAt(parentIndex);
         } else {
-
           // check to see if its the last child
           // if yes, then remove parent as well
           // else, only remove child
-          if(mockData[parentIndex].children != null && mockData[parentIndex].children.length > 1) {
+          if (mockData[parentIndex].children != null &&
+              mockData[parentIndex].children.length > 1) {
             mockData[parentIndex].children.removeAt(childIndex);
           } else {
             mockData.removeAt(parentIndex);

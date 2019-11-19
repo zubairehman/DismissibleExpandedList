@@ -6,11 +6,11 @@ class TextStyles {
   static TextStyle get titleSelected => TextStyle(
         fontSize: 15.0,
         fontWeight: FontWeight.bold,
-        color: Colors.white,
+        color: Colors.black87,
       );
 
   static TextStyle get subTitleSelected => TextStyle(
-        color: Colors.white,
+        color: Colors.black87,
         fontSize: 12.0,
       );
 
