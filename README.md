@@ -11,11 +11,11 @@ User can enable/disable swipe functionality for parent or child items by providi
 ## Demo
 
 <p>
-  <img src="screenshots/Screenshot_20191119-125107.jpg height="42" width="42"">
+  <img src="screenshots/Screenshot_20191119-125107.jpg height="42" width="42">
 </p>
 
 <p>
-  <img src="screenshots/Screenshot_20191119-125113.jpg height="42" width="42"">
+  <img src="screenshots/Screenshot_20191119-125113.jpg height="42" width="42">
 </p>
 
 Use this package as a library
