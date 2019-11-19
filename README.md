@@ -4,7 +4,8 @@ A Flutter package to provide dismissible and expanded list.
 
 ## Getting Started
 
-Dismissible Expanded list is written in dart. It provides us an ability to display hierarchical data in the form of list as well as allowing us to swipe the individual tiles. Tapping a tile expands or collapses the view of its children. When a tile is collapsed its children are disposed so that the widget footprint of the list only reflects what’s visible.
+Dismissible Expanded List is written in dart. It provides us an ability to display hierarchical data in the form of list as well as allowing us to swipe the individual tiles. Tapping a tile expands or collapses the view of its children. When a tile is collapsed its children are disposed so that the widget footprint of the list only reflects what’s visible. 
+User can enable/disable swipe functionality for parent or child by providing simple configurations. A complete list of configurable params are mentioned below.
 
 Use this package as a library
 -----------------------------
@@ -40,6 +41,9 @@ import 'package:dismissible_expanded_list/dismissible_expanded_list.dart';
 
 How to use
 ----------
+
+Using Dismissible Expanded List is quite easy, all you need to do is 
+
 
 ```dart
 return ListView.builder(
