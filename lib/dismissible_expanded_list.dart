@@ -164,7 +164,7 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
       background: Container(color: widget.config.rightSwipeColor),
       secondaryBackground: Container(color: widget.config.leftSwipeColor),
       child: Card(
-        elevation: widget.config.elevation,
+        elevation: widget.config.listElevation,
         color: !widget.config.allowParentSelection && root.children.isNotEmpty
             ? widget.config.backgroundColor
             : root.id != null && root.selected
@@ -202,7 +202,7 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
   Widget _buildListTileCard(
       ExpandableListItem root, int parentIndex, int childIndex) {
     return Card(
-      elevation: widget.config.elevation,
+      elevation: widget.config.listElevation,
       color: !widget.config.allowParentSelection && root.children.isNotEmpty
           ? widget.config.backgroundColor
           : root.id != null && root.selected
@@ -297,6 +297,7 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
     return Align(
       alignment: Alignment.topRight,
       child: Card(
+        elevation: widget.config.infoBadgeElevation,
         margin: EdgeInsets.all(0.0),
         shape: ContinuousRectangleBorder(),
         child: Container(
