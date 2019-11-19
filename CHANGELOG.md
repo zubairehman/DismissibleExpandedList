@@ -75,3 +75,6 @@
 
 ## [0.2.4] - 11-Nov-2019
 * added data types for config 
+
+## [0.2.5] - 11-Nov-2019
+* updated readme.md file

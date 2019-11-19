@@ -1,6 +1,6 @@
 # Dismissible Expanded List
 
-A Flutter package to provide dismissible and expanded list.
+A Flutter package to provide an ability to display hierarchical data in the form of list as well as allows to swipe the individual tiles.
 
 ## Getting Started
 
@@ -16,7 +16,6 @@ User can enable/disable swipe functionality for parent or child items by providi
   <img src="screenshots/Screenshot_20191119-130415.jpg" width="300">
   <img src="screenshots/Screenshot_20191119-130427.jpg" width="300">
 </p>
-
 
 
 Use this package as a library
