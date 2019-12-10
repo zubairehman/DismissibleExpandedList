@@ -4,10 +4,10 @@ library dismissible_expanded_list;
 // with an ExpansionTile.
 import 'package:dismissible_expanded_list/constants/text_styles.dart';
 import 'package:dismissible_expanded_list/model/dismissible_list_configuration.dart';
-import 'package:flutter/material.dart';
 import 'package:dismissible_expanded_list/model/entry.dart';
 import 'package:dismissible_expanded_list/utils/timeline/timeline_painter.dart';
 import 'package:dismissible_expanded_list/widgets/custom_expansion_tile.dart';
+import 'package:flutter/material.dart';
 
 // type defs:-------------------------------------------------------------------
 typedef void OnItemDismissed(
@@ -245,8 +245,8 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
             overflow: TextOverflow.ellipsis,
             softWrap: false,
             style: shouldApplySelection(root)
-                ? widget.config.titleSelectedStyle ?? TextStyles.titleSelected
-                : widget.config.titleStyle ?? TextStyles.title,
+                ? widget.config.titleSelectedStyle ?? titleSelected
+                : widget.config.titleStyle ?? title,
           ),
         ),
         widget.config.trailingIcon != null
@@ -275,8 +275,8 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
               softWrap: false,
               style: shouldApplySelection(root)
                   ? widget.config.subTitleSelectedStyle ??
-                      TextStyles.subTitleSelected
-                  : widget.config.subTitleStyle ?? TextStyles.subTitle,
+                      subTitleSelected
+                  : widget.config.subTitleStyle ?? subTitle,
             ),
           ),
           root.children.length > 0

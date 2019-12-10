@@ -78,3 +78,6 @@
 
 ## [0.2.5] - 11-Nov-2019
 * updated readme.md file
+
+## [0.2.6] - 11-Nov-2019
+* fixed config constructor
