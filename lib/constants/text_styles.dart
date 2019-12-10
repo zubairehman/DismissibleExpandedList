@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
 
-const TextStyle titleSelected = const TextStyle(
+const TextStyle titleSelectedStyle = const TextStyle(
   fontSize: 15.0,
   fontWeight: FontWeight.bold,
   color: Colors.black87,
 );
 
-const TextStyle subTitleSelected = const TextStyle(
+const TextStyle subTitleSelectedStyle = const TextStyle(
   color: Colors.black87,
   fontSize: 12.0,
 );
 
-const TextStyle title = const TextStyle(
+const TextStyle titleStyle = const TextStyle(
   fontSize: 15.0,
   fontWeight: FontWeight.bold,
   color: Colors.black54,
 );
 
-const TextStyle subTitle = const TextStyle(
+const TextStyle subTitleStyle = const TextStyle(
   color: Colors.black54,
   fontSize: 12.0,
 );

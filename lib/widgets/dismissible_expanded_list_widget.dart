@@ -245,8 +245,8 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
             overflow: TextOverflow.ellipsis,
             softWrap: false,
             style: shouldApplySelection(root)
-                ? widget.config.titleSelectedStyle ?? titleSelected
-                : widget.config.titleStyle ?? title,
+                ? widget.config.titleSelectedStyle ?? titleSelectedStyle
+                : widget.config.titleStyle ?? titleStyle,
           ),
         ),
         widget.config.trailingIcon != null
@@ -275,8 +275,8 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
               softWrap: false,
               style: shouldApplySelection(root)
                   ? widget.config.subTitleSelectedStyle ??
-                      subTitleSelected
-                  : widget.config.subTitleStyle ?? subTitle,
+                      subTitleSelectedStyle
+                  : widget.config.subTitleStyle ?? subTitleStyle,
             ),
           ),
           root.children.length > 0

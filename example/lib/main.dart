@@ -61,10 +61,10 @@ class _ExpansionTileSampleState extends State<ExpansionTileSample> {
       ..allowParentSelection = true
       ..showBorder = false
       ..showInfoBadge = true
-      ..titleStyle = TextStyles.title
-      ..titleSelectedStyle = TextStyles.titleSelected
-      ..subTitleStyle = TextStyles.subTitle
-      ..subTitleSelectedStyle = TextStyles.subTitleSelected
+      ..titleStyle = titleStyle
+      ..titleSelectedStyle = titleSelectedStyle
+      ..subTitleStyle = subTitleStyle
+      ..subTitleSelectedStyle = subTitleSelectedStyle
       ..trailingIcon = Icons.info_outline
       ..lineColor = Colors.grey[400]
       ..selectionColor = Color(0xFFcee9f0)

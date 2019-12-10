@@ -1,4 +1,4 @@
-import 'package:dismissible_expanded_list/constants/text_styles.dart';
+import 'package:dismissible_expanded_list/constants/text_styles.dart' as style;
 import 'package:flutter/material.dart';
 
 class DismissibleListConfig {
@@ -36,10 +36,10 @@ class DismissibleListConfig {
     this.allowParentSelection = true,
     this.showBorder = false,
     this.showInfoBadge = true,
-    this.titleStyle = title,
-    this.titleSelectedStyle = titleSelected,
-    this.subTitleStyle = subTitle,
-    this.subTitleSelectedStyle = subTitleSelected,
+    this.titleStyle = style.titleStyle,
+    this.titleSelectedStyle = style.titleSelectedStyle,
+    this.subTitleStyle = style.subTitleStyle,
+    this.subTitleSelectedStyle = style.subTitleSelectedStyle,
     this.trailingIcon = Icons.info_outline,
     this.lineColor = const Color(0xFFe0e0e0),
     this.selectionColor = const Color(0xFFcee9f0),
