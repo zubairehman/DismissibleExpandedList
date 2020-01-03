@@ -59,10 +59,8 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
   AnimationController _iconAnimationController;
   Animation<double> _iconTurns;
   bool _isExpanded = false;
-  static final Animatable<double> _easeInTween =
-      CurveTween(curve: Curves.easeIn);
-  static final Animatable<double> _halfTween =
-      Tween<double>(begin: 0.0, end: 0.5);
+  static final Animatable<double> _easeInTween = CurveTween(curve: Curves.easeIn);
+  static final Animatable<double> _halfTween = Tween<double>(begin: 0.0, end: 0.5);
 
   @override
   void initState() {
@@ -97,7 +95,7 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
     if (root.children.isEmpty) {
       return widget.config.allowBatchSwipe
           ? _buildDismissibleTile(root, parentIndex, -1)
-          : _buildListTileCard(root, parentIndex, -1);
+          : _buildCardTile(root, parentIndex, -1);
     }
 
     return Stack(
@@ -113,7 +111,7 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
           },
           listTile: widget.config.allowBatchSwipe
               ? _buildDismissibleTile(root, parentIndex, -1)
-              : _buildListTileCard(root, parentIndex, -1),
+              : _buildCardTile(root, parentIndex, -1),
           children: root.children
               .asMap()
               .map(
@@ -133,8 +131,7 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
                           child: widget.config.allowChildSwipe
                               ? _buildDismissibleTile(
                                   entry, parentIndex, childIndex)
-                              : _buildListTileCard(
-                                  entry, parentIndex, childIndex),
+                              : _buildCardTile(entry, parentIndex, childIndex),
                         ),
                       ],
                     ),
@@ -173,36 +170,12 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
             : root.id != null && root.selected
                 ? widget.config.selectionColor
                 : widget.config.backgroundColor,
-        child: _buildListTile(root, parentIndex, childIndex),
+        child: _buildListTileContent(root, parentIndex, childIndex),
       ),
     );
   }
 
-  Widget _buildListTile(
-      ExpandableListItem root, int parentIndex, int childIndex) {
-    return Stack(
-      children: <Widget>[
-        widget.config.showInfoBadge ? _buildBadge(root) : SizedBox.shrink(),
-        ListTile(
-          contentPadding:
-              EdgeInsets.only(top: 5.0, bottom: 5.0, right: 10.0, left: 10.0),
-          title: _buildTitle(root),
-          subtitle: _buildSubTitle(root),
-          onTap: () {
-            widget.onItemClick(parentIndex, childIndex, root);
-
-            //only collapse if its a parent
-            if (!root.id.contains('.') && root.children.isNotEmpty) {
-//          CustomExpansionTile.of(context).toggle();
-              _expansionTile.currentState.toggle();
-            }
-          },
-        ),
-      ],
-    );
-  }
-
-  Widget _buildListTileCard(
+  Widget _buildCardTile(
       ExpandableListItem root, int parentIndex, int childIndex) {
     return Card(
       elevation: widget.config.listElevation,
@@ -211,26 +184,48 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
           : root.id != null && root.selected
               ? widget.config.selectionColor
               : widget.config.backgroundColor,
-      child: Stack(
-        children: <Widget>[
-          widget.config.showInfoBadge ? _buildBadge(root) : SizedBox.shrink(),
-          ListTile(
-            contentPadding:
-                EdgeInsets.only(top: 5.0, bottom: 5.0, right: 10.0, left: 10.0),
-            title: _buildTitle(root),
-            subtitle: _buildSubTitle(root),
-            onTap: () {
-              widget.onItemClick(parentIndex, childIndex, root);
+      child: _buildListTileContent(root, parentIndex, childIndex),
+    );
+  }
 
-              //only collapse if its a parent
-              if (!root.id.contains('.') && root.children.isNotEmpty) {
+  Widget _buildListTileContent(
+      ExpandableListItem root, int parentIndex, int childIndex) {
+    return Stack(
+      children: <Widget>[
+        widget.config.showInfoBadge ? _buildBadge(root) : SizedBox.shrink(),
+        root.subTitle != null && root.subTitle.isNotEmpty
+            ? ListTile(
+                contentPadding: EdgeInsets.only(
+                    top: 5.0, bottom: 5.0, right: 10.0, left: 10.0),
+                title: _buildTitle(root),
+                subtitle: _buildSubTitle(root),
+                trailing: _buildTrailingWidget(root),
+                onTap: () {
+                  widget.onItemClick(parentIndex, childIndex, root);
+
+                  //only collapse if its a parent
+                  if (!root.id.contains('.') && root.children.isNotEmpty) {
 //          CustomExpansionTile.of(context).toggle();
-                _expansionTile.currentState.toggle();
-              }
-            },
-          ),
-        ],
-      ),
+                    _expansionTile.currentState.toggle();
+                  }
+                },
+              )
+            : ListTile(
+                contentPadding: EdgeInsets.only(
+                    top: 12.0, bottom: 12.0, right: 10.0, left: 10.0),
+                title: _buildTitle(root),
+                trailing: _buildTrailingWidget(root),
+                onTap: () {
+                  widget.onItemClick(parentIndex, childIndex, root);
+
+                  //only collapse if its a parent
+                  if (!root.id.contains('.') && root.children.isNotEmpty) {
+//          CustomExpansionTile.of(context).toggle();
+                    _expansionTile.currentState.toggle();
+                  }
+                },
+              ),
+      ],
     );
   }
 
@@ -249,15 +244,6 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
                 : widget.config.titleStyle ?? titleStyle,
           ),
         ),
-        widget.config.trailingIcon != null
-            ? Icon(
-                widget.config.trailingIcon,
-                size: widget.config.infoIconSize,
-                color: shouldApplySelection(root)
-                    ? widget.config.iconSelectedColor
-                    : widget.config.iconColor,
-              )
-            : SizedBox.shrink(),
       ],
     );
   }
@@ -274,22 +260,41 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
               overflow: TextOverflow.ellipsis,
               softWrap: false,
               style: shouldApplySelection(root)
-                  ? widget.config.subTitleSelectedStyle ??
-                      subTitleSelectedStyle
+                  ? widget.config.subTitleSelectedStyle ?? subTitleSelectedStyle
                   : widget.config.subTitleStyle ?? subTitleStyle,
             ),
           ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildTrailingWidget(ExpandableListItem root) {
+    return AnimatedBuilder(
+      animation: _expandCollapseController.view,
+      builder: (BuildContext context, Widget child) => Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          widget.config.trailingIcon != null
+              ? Icon(
+            widget.config.trailingIcon,
+            size: widget.config.infoIconSize,
+            color: shouldApplySelection(root)
+                ? widget.config.iconSelectedColor
+                : widget.config.iconColor,
+          )
+              : SizedBox.shrink(),
           root.children.length > 0
               ? RotationTransition(
-                  turns: _iconTurns,
-                  child: Icon(
-                    Icons.expand_more,
-                    size: 18.0,
-                    color: shouldApplySelection(root)
-                        ? widget.config.iconSelectedColor
-                        : widget.config.iconColor,
-                  ),
-                )
+            turns: _iconTurns,
+            child: Icon(
+              Icons.expand_more,
+              size: 18.0,
+              color: shouldApplySelection(root)
+                  ? widget.config.iconSelectedColor
+                  : widget.config.iconColor,
+            ),
+          )
               : SizedBox.shrink(),
         ],
       ),

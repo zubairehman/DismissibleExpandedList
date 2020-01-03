@@ -7,7 +7,6 @@ final List<ExpandableListItem> mockData = <ExpandableListItem>[
   ExpandableListItem(
     id: '1',
     title: getTextWidget('Chapter A'),
-    subTitle: getTextWidget('Subtitle'),
     selected: true,
     badgeText: 'In Progress',
     badgeColor: Color(0xFFFFE082),

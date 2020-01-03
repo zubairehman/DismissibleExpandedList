@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b4d8efa4-a60c-4b5f-aa90-80f2ab762c57" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.packages" beforeDir="false" afterPath="$PROJECT_DIR$/.packages" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/android/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/mock.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/mock.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/constants/text_styles.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/constants/text_styles.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/model/dismissible_list_configuration.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/model/dismissible_list_configuration.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/dismissible_expanded_list_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/dismissible_expanded_list_widget.dart" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,14 +18,17 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="Pixel_API_28" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="26EBB18C09159235" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pubspec.yaml">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lib/widgets/dismissible_expanded_list_widget.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
+            <state relative-caret-position="-3975">
+              <caret line="62" column="47" selection-start-line="62" selection-start-column="47" selection-end-line="62" selection-end-column="47" />
+              <folding>
+                <element signature="e#131#201#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -34,8 +36,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/example/lib/mock.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="436">
-              <caret line="72" column="43" selection-start-line="72" selection-start-column="43" selection-end-line="72" selection-end-column="43" />
+            <state relative-caret-position="135">
+              <caret line="9" selection-start-line="9" selection-end-line="9" />
               <folding>
                 <element signature="e#54#114#0" expanded="true" />
               </folding>
@@ -44,30 +46,12 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README.md">
+        <entry file="file://$PROJECT_DIR$/example/lib/main.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="116" column="45" lean-forward="true" selection-start-line="116" selection-start-column="45" selection-end-line="116" selection-end-column="45" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CHANGELOG.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="64" column="22" lean-forward="true" selection-start-line="64" selection-start-column="22" selection-end-line="64" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/lib/model/dismissible_list_configuration.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="481">
-              <caret line="43" column="21" selection-start-line="43" selection-start-column="21" selection-end-line="43" selection-end-column="37" />
+            <state relative-caret-position="118">
+              <caret line="131" column="10" selection-start-line="131" selection-start-column="10" selection-end-line="131" selection-end-column="10" />
               <folding>
-                <element signature="e#0#70#0" expanded="true" />
+                <element signature="e#0#35#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -100,6 +84,7 @@
       <find>backgroundColor</find>
       <find>infoIconSize</find>
       <find>var</find>
+      <find>onItemDismissed</find>
     </findStrings>
     <replaceStrings>
       <replace>mockData</replace>
@@ -118,16 +103,16 @@
         <option value="$PROJECT_DIR$/example/pubspec.yaml" />
         <option value="$PROJECT_DIR$/lib/model/entry.dart" />
         <option value="$PROJECT_DIR$/lib/dismissible_expanded_list.dart" />
-        <option value="$PROJECT_DIR$/example/lib/main.dart" />
-        <option value="$PROJECT_DIR$/lib/widgets/dismissible_expanded_list_widget.dart" />
         <option value="$PROJECT_DIR$/lib/utils/timeline/timeline_painter.dart" />
         <option value="$PROJECT_DIR$/lib/widgets/custom_expansion_tile.dart" />
-        <option value="$PROJECT_DIR$/example/lib/mock.dart" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/pubspec.yaml" />
         <option value="$PROJECT_DIR$/CHANGELOG.md" />
         <option value="$PROJECT_DIR$/lib/constants/text_styles.dart" />
+        <option value="$PROJECT_DIR$/example/lib/main.dart" />
         <option value="$PROJECT_DIR$/lib/model/dismissible_list_configuration.dart" />
+        <option value="$PROJECT_DIR$/example/lib/mock.dart" />
+        <option value="$PROJECT_DIR$/lib/widgets/dismissible_expanded_list_widget.dart" />
       </list>
     </option>
   </component>
@@ -138,7 +123,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="822" />
@@ -149,8 +134,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -158,11 +144,21 @@
               <item name="dismissible_expanded_list" type="b2602c69:ProjectViewProjectNode" />
               <item name="dismissible_expanded_list" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="dismissible_expanded_list" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dismissible_expanded_list" type="462c0819:PsiDirectoryNode" />
+              <item name="example" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dismissible_expanded_list" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dismissible_expanded_list" type="462c0819:PsiDirectoryNode" />
+              <item name="example" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -474,11 +470,25 @@
       <option name="project" value="LOCAL" />
       <updated>1574156067937</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="- release v0.2.6&#10;- fixed config constructor">
+      <created>1575954840836</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1575954840836</updated>
+    </task>
+    <task id="LOCAL-00040" summary="- release v0.2.6&#10;- fixed config constructor">
+      <created>1575955138597</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1575955138597</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="822" extended-state="6" />
+    <frame x="0" y="23" width="1440" height="822" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
@@ -494,7 +504,7 @@
       <window_info anchor="bottom" id="Run" order="1" weight="0.4808219" />
       <window_info anchor="bottom" id="TODO" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4630137" />
-      <window_info anchor="bottom" id="Terminal" order="4" weight="0.3287483" />
+      <window_info anchor="bottom" id="Terminal" order="4" weight="0.32739726" />
       <window_info anchor="bottom" id="Event Log" order="5" side_tool="true" weight="0.32876712" />
       <window_info anchor="bottom" id="Flutter Performance" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32866243" />
@@ -578,7 +588,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- added batchText in entry &#10;- uploaded new package" />
     <MESSAGE value="- added parent selection&#10;- fixed bugs" />
     <MESSAGE value="- fixed selection issue" />
     <MESSAGE value="- refactored code" />
@@ -603,7 +612,8 @@
     <MESSAGE value="- refactored mock data" />
     <MESSAGE value="- added screenshots" />
     <MESSAGE value="- release v0.2.5" />
-    <option name="LAST_COMMIT_MESSAGE" value="- release v0.2.5" />
+    <MESSAGE value="- release v0.2.6&#10;- fixed config constructor" />
+    <option name="LAST_COMMIT_MESSAGE" value="- release v0.2.6&#10;- fixed config constructor" />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
@@ -676,13 +686,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/model/entry.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="24" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../../../../flutter/packages/flutter/lib/src/material/icons.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="235">
@@ -696,16 +699,6 @@
           <caret line="4" selection-start-line="4" selection-end-line="4" />
           <folding>
             <element signature="e#0#70#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/lib/main.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="62">
-          <caret line="52" column="45" selection-start-line="52" selection-start-column="45" selection-end-line="52" selection-end-column="45" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -738,23 +731,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/widgets/dismissible_expanded_list_widget.dart">
+    <entry file="file://$PROJECT_DIR$/CHANGELOG.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" selection-start-line="19" selection-end-line="20" selection-end-column="62" />
-          <folding>
-            <element signature="e#131#201#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/lib/mock.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="436">
-          <caret line="72" column="43" selection-start-line="72" selection-start-column="43" selection-end-line="72" selection-end-column="43" />
-          <folding>
-            <element signature="e#54#114#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="150">
+          <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
         </state>
       </provider>
     </entry>
@@ -765,26 +745,60 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CHANGELOG.md">
+    <entry file="file://$PROJECT_DIR$/lib/model/entry.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="64" column="22" lean-forward="true" selection-start-line="64" selection-start-column="22" selection-end-line="64" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/constants/text_styles.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="2" lean-forward="true" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
+        <state relative-caret-position="75">
+          <caret line="5" column="24" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/model/dismissible_list_configuration.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
-          <caret line="43" column="21" selection-start-line="43" selection-start-column="21" selection-end-line="43" selection-end-column="37" />
+        <state relative-caret-position="330">
+          <caret line="23" column="18" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/constants/text_styles.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="34" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/lib/main.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="118">
+          <caret line="131" column="10" selection-start-line="131" selection-start-column="10" selection-end-line="131" selection-end-column="10" />
           <folding>
-            <element signature="e#0#70#0" expanded="true" />
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../../../flutter/packages/flutter/lib/src/widgets/framework.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="2976" column="14" selection-start-line="2976" selection-start-column="14" selection-end-line="2976" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/lib/mock.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+          <folding>
+            <element signature="e#54#114#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/widgets/dismissible_expanded_list_widget.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3975">
+          <caret line="62" column="47" selection-start-line="62" selection-start-column="47" selection-end-line="62" selection-end-column="47" />
+          <folding>
+            <element signature="e#131#201#0" expanded="true" />
           </folding>
         </state>
       </provider>
