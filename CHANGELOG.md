@@ -81,3 +81,7 @@
 
 ## [0.2.6] - 11-Nov-2019
 * fixed config constructor
+
+## [0.2.7] - 03-Jan-2020
+* refactored code
+* refactored trailing icon logic

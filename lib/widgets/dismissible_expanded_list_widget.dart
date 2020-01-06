@@ -5,11 +5,12 @@ library dismissible_expanded_list;
 import 'package:dismissible_expanded_list/constants/text_styles.dart';
 import 'package:dismissible_expanded_list/model/dismissible_list_configuration.dart';
 import 'package:dismissible_expanded_list/model/entry.dart';
+import 'package:dismissible_expanded_list/model/rectangular_clipper.dart';
 import 'package:dismissible_expanded_list/utils/timeline/timeline_painter.dart';
 import 'package:dismissible_expanded_list/widgets/custom_expansion_tile.dart';
 import 'package:flutter/material.dart';
 
-// type defs:-------------------------------------------------------------------
+// type definitions:------------------------------------------------------------
 typedef void OnItemDismissed(
   int parentIndex,
   int childIndex,
@@ -59,21 +60,16 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
   AnimationController _iconAnimationController;
   Animation<double> _iconTurns;
   bool _isExpanded = false;
-  static final Animatable<double> _easeInTween = CurveTween(curve: Curves.easeIn);
-  static final Animatable<double> _halfTween = Tween<double>(begin: 0.0, end: 0.5);
+  static final Animatable<double> _easeInTween =
+      CurveTween(curve: Curves.easeIn);
+  static final Animatable<double> _halfTween =
+      Tween<double>(begin: 0.0, end: 0.5);
 
   @override
   void initState() {
     super.initState();
-    _expandCollapseController =
-        AnimationController(duration: _kExpand, vsync: this);
-    _iconAnimationController =
-        AnimationController(duration: _kExpand, vsync: this);
-    _iconTurns = _iconAnimationController.drive(_halfTween.chain(_easeInTween));
-    _expandCollapseController.forward();
-    _isExpanded = PageStorage.of(context)?.readState(context) ?? false;
-    if (_isExpanded) _iconAnimationController.value = 1.0;
-    onExpansionChange(true);
+    _initControllers();
+    _onExpansionChange(true);
   }
 
   @override
@@ -106,7 +102,7 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
           initiallyExpanded: shouldExpand(root),
           onExpansionChanged: (isExpanded) {
             setState(() {
-              onExpansionChange(isExpanded);
+              _onExpansionChange(isExpanded);
             });
           },
           listTile: widget.config.allowBatchSwipe
@@ -163,15 +159,7 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
       // Show a red background as the item is swiped away.
       background: Container(color: widget.config.rightSwipeColor),
       secondaryBackground: Container(color: widget.config.leftSwipeColor),
-      child: Card(
-        elevation: widget.config.listElevation,
-        color: !widget.config.allowParentSelection && root.children.isNotEmpty
-            ? widget.config.backgroundColor
-            : root.id != null && root.selected
-                ? widget.config.selectionColor
-                : widget.config.backgroundColor,
-        child: _buildListTileContent(root, parentIndex, childIndex),
-      ),
+      child: _buildCardTile(root, parentIndex, childIndex),
     );
   }
 
@@ -190,117 +178,203 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
 
   Widget _buildListTileContent(
       ExpandableListItem root, int parentIndex, int childIndex) {
-    return Stack(
-      children: <Widget>[
-        widget.config.showInfoBadge ? _buildBadge(root) : SizedBox.shrink(),
-        root.subTitle != null && root.subTitle.isNotEmpty
-            ? ListTile(
-                contentPadding: EdgeInsets.only(
-                    top: 5.0, bottom: 5.0, right: 10.0, left: 10.0),
-                title: _buildTitle(root),
-                subtitle: _buildSubTitle(root),
-                trailing: _buildTrailingWidget(root),
-                onTap: () {
-                  widget.onItemClick(parentIndex, childIndex, root);
-
-                  //only collapse if its a parent
-                  if (!root.id.contains('.') && root.children.isNotEmpty) {
-//          CustomExpansionTile.of(context).toggle();
-                    _expansionTile.currentState.toggle();
-                  }
-                },
-              )
-            : ListTile(
-                contentPadding: EdgeInsets.only(
-                    top: 12.0, bottom: 12.0, right: 10.0, left: 10.0),
-                title: _buildTitle(root),
-                trailing: _buildTrailingWidget(root),
-                onTap: () {
-                  widget.onItemClick(parentIndex, childIndex, root);
-
-                  //only collapse if its a parent
-                  if (!root.id.contains('.') && root.children.isNotEmpty) {
-//          CustomExpansionTile.of(context).toggle();
-                    _expansionTile.currentState.toggle();
-                  }
-                },
-              ),
-      ],
-    );
-  }
-
-  Widget _buildTitle(ExpandableListItem root) {
-    return Row(
-      mainAxisSize: MainAxisSize.max,
-      children: <Widget>[
-        Expanded(
-          child: Text(
-            root.title,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-            softWrap: false,
-            style: shouldApplySelection(root)
-                ? widget.config.titleSelectedStyle ?? titleSelectedStyle
-                : widget.config.titleStyle ?? titleStyle,
-          ),
-        ),
-      ],
-    );
-  }
-
-  Widget _buildSubTitle(ExpandableListItem root) {
-    return AnimatedBuilder(
-      animation: _expandCollapseController.view,
-      builder: (BuildContext context, Widget child) => Row(
+    return Container(
+      height: 80.0,
+      child: Stack(
         children: <Widget>[
-          Expanded(
-            child: Text(
-              root.subTitle,
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              softWrap: false,
-              style: shouldApplySelection(root)
-                  ? widget.config.subTitleSelectedStyle ?? subTitleSelectedStyle
-                  : widget.config.subTitleStyle ?? subTitleStyle,
-            ),
+          widget.config.showInfoBadge ? _buildBadge(root) : SizedBox.shrink(),
+          _buildListItem(root, parentIndex, childIndex),
+          _buildCornerIconWidget(
+            root,
+            radiusTopLeft: 4.0,
+            topLeft: true,
+            icon: Icons.access_time,
+            alignment: Alignment.topLeft,
+          ),
+          _buildCornerIconWidget(
+            root,
+            radiusBottomLeft: 4.0,
+            bottomLeft: true,
+            icon: Icons.access_time,
+            alignment: Alignment.bottomLeft,
+          ),
+          _buildCornerIconWidget(
+            root,
+            radiusBottomRight: 4.0,
+            bottomRight: true,
+            icon: Icons.access_time,
+            alignment: Alignment.bottomRight,
           ),
         ],
       ),
     );
+  }
+
+  Widget _buildListItem(
+      ExpandableListItem root, int parentIndex, int childIndex) {
+    return InkWell(
+      child: Row(
+        children: <Widget>[
+          SizedBox(width: 8.0),
+          _buildLeadingWidget(root),
+          SizedBox(width: 8.0),
+          Expanded(
+            flex: 1,
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                _buildTitle(root),
+                _buildSubTitle(root),
+                SizedBox(height: 8.0),
+                _buildInfoIcons(root),
+              ],
+            ),
+          ),
+          _buildTrailingWidget(root),
+          SizedBox(width: 8.0),
+        ],
+      ),
+      onTap: () {
+        widget.onItemClick(parentIndex, childIndex, root);
+
+        //only collapse if its a parent
+        if (!root.id.contains('.') && root.children.isNotEmpty) {
+          _expansionTile.currentState.toggle();
+        }
+      },
+    );
+  }
+
+  Widget _buildCornerIconWidget(
+    ExpandableListItem root, {
+    double radiusTopLeft = 0.0,
+    double radiusBottomLeft = 0.0,
+    double radiusBottomRight = 0.0,
+    bool topLeft = false,
+    bool topRight = false,
+    bool bottomLeft = false,
+    bool bottomRight = false,
+    Alignment alignment,
+    IconData icon,
+  }) {
+    return Stack(
+      children: <Widget>[
+        Align(
+          alignment: alignment,
+          child: ClipPath(
+            clipper: RectangularClipper(
+              topLeft: topLeft,
+              topRight: topRight,
+              bottomLeft: bottomLeft,
+              bottomRight: bottomRight,
+            ),
+            child: Container(
+              height: 32.0,
+              width: 32.0,
+              decoration: BoxDecoration(
+                color: widget.config.cornerIconBackgroundColor,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(radiusTopLeft),
+                  bottomLeft: Radius.circular(radiusBottomLeft),
+                  bottomRight: Radius.circular(radiusBottomRight),
+                ),
+              ),
+            ),
+          ),
+        ),
+        Align(alignment: alignment, child: Icon(icon, size: 18.0))
+      ],
+    );
+  }
+
+  Widget _buildLeadingWidget(ExpandableListItem root) {
+    return Icon(
+      widget.config.leadingIcon,
+      size: widget.config.leadingIconSize,
+      color: shouldApplySelection(root)
+          ? widget.config.iconSelectedColor
+          : widget.config.iconColor,
+    );
+  }
+
+  Widget _buildTitle(ExpandableListItem root) {
+    return Text(
+      root.title,
+      maxLines: 1,
+      overflow: TextOverflow.ellipsis,
+      softWrap: false,
+      style: shouldApplySelection(root)
+          ? widget.config.titleSelectedStyle ?? titleSelectedStyle
+          : widget.config.titleStyle ?? titleStyle,
+    );
+  }
+
+  Widget _buildSubTitle(ExpandableListItem root) {
+    return root.subTitle != null && root.subTitle.isNotEmpty
+        ? Text(
+            root.subTitle,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            softWrap: false,
+            style: shouldApplySelection(root)
+                ? widget.config.subTitleSelectedStyle ?? subTitleSelectedStyle
+                : widget.config.subTitleStyle ?? subTitleStyle,
+          )
+        : SizedBox.shrink();
   }
 
   Widget _buildTrailingWidget(ExpandableListItem root) {
     return AnimatedBuilder(
       animation: _expandCollapseController.view,
-      builder: (BuildContext context, Widget child) => Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          widget.config.trailingIcon != null
-              ? Icon(
-            widget.config.trailingIcon,
-            size: widget.config.infoIconSize,
-            color: shouldApplySelection(root)
-                ? widget.config.iconSelectedColor
-                : widget.config.iconColor,
-          )
-              : SizedBox.shrink(),
-          root.children.length > 0
-              ? RotationTransition(
-            turns: _iconTurns,
-            child: Icon(
-              Icons.expand_more,
-              size: 18.0,
-              color: shouldApplySelection(root)
-                  ? widget.config.iconSelectedColor
-                  : widget.config.iconColor,
-            ),
-          )
-              : SizedBox.shrink(),
-        ],
-      ),
+      builder: (BuildContext context, Widget child) => root.children.length > 0
+          ? RotationTransition(
+              turns: _iconTurns,
+              child: Icon(
+                Icons.expand_more,
+                size: 18.0,
+                color: shouldApplySelection(root)
+                    ? widget.config.iconSelectedColor
+                    : widget.config.iconColor,
+              ),
+            )
+          : SizedBox.shrink(),
     );
   }
 
+  // info icons:----------------------------------------------------------------
+  Widget _buildInfoIcons(ExpandableListItem root) {
+    return Row(
+      children: <Widget>[
+        Icon(
+          widget.config.trailingIcon,
+          size: widget.config.infoIconSize,
+          color: shouldApplySelection(root)
+              ? widget.config.iconSelectedColor
+              : widget.config.iconColor,
+        ),
+        SizedBox(width: 4.0),
+        Icon(
+          widget.config.trailingIcon,
+          size: widget.config.infoIconSize,
+          color: shouldApplySelection(root)
+              ? widget.config.iconSelectedColor
+              : widget.config.iconColor,
+        ),
+        SizedBox(width: 4.0),
+        Icon(
+          widget.config.trailingIcon,
+          size: widget.config.infoIconSize,
+          color: shouldApplySelection(root)
+              ? widget.config.iconSelectedColor
+              : widget.config.iconColor,
+        )
+      ],
+    );
+  }
+
+  // badge:---------------------------------------------------------------------
   Widget _buildBadge(ExpandableListItem root) {
     return Align(
       alignment: Alignment.topRight,
@@ -328,6 +402,7 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
     );
   }
 
+  // line:----------------------------------------------------------------------
   Widget _buildLine(int index) {
     return Container(
       width: 25.0,
@@ -343,7 +418,18 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
   }
 
   // General Methods:-----------------------------------------------------------
-  void onExpansionChange(bool isExpanded) {
+  void _initControllers() {
+    _expandCollapseController =
+        AnimationController(duration: _kExpand, vsync: this);
+    _iconAnimationController =
+        AnimationController(duration: _kExpand, vsync: this);
+    _iconTurns = _iconAnimationController.drive(_halfTween.chain(_easeInTween));
+    _expandCollapseController.forward();
+    _isExpanded = PageStorage.of(context)?.readState(context) ?? false;
+    if (_isExpanded) _iconAnimationController.value = 1.0;
+  }
+
+  void _onExpansionChange(bool isExpanded) {
     _isExpanded = isExpanded;
     if (_isExpanded)
       _iconAnimationController.forward();
