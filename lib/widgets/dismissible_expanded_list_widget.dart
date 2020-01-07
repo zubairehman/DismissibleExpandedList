@@ -229,8 +229,8 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
         children: <Widget>[
           SizedBox(width: 8.0),
           root.children != null && root.children.isNotEmpty
-              ? _buildLeadingWidget(root)
-              : SizedBox(width: 8.0),
+              ? _buildLeadingWidget(root, widget.config.leadingIconForBatch)
+              : _buildLeadingWidget(root, widget.config.leadingIconForChild),
           SizedBox(width: 8.0),
           Expanded(
             flex: 1,
@@ -241,8 +241,9 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
               children: <Widget>[
                 _buildTitle(root),
                 _buildSubTitle(root),
-                SizedBox(height: 8.0),
-                _buildInfoIcons(root),
+                widget.config.icons != null && widget.config.icons.isNotEmpty
+                    ? _buildInfoIcons(root)
+                    : SizedBox.shrink(),
               ],
             ),
           ),
@@ -293,7 +294,9 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
               height: 35.0,
               width: 35.0,
               decoration: BoxDecoration(
-                color: widget.config.cornerIconBackgroundColor,
+                color: root.id != null && root.selected
+                    ? widget.config.cornerBackgroundColor
+                    : widget.config.cornerSelectionColor,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(radiusTopLeft),
                   bottomLeft: Radius.circular(radiusBottomLeft),
@@ -319,9 +322,9 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
     );
   }
 
-  Widget _buildLeadingWidget(ExpandableListItem root) {
+  Widget _buildLeadingWidget(ExpandableListItem root, IconData leadingIcon) {
     return Icon(
-      widget.config.leadingIcon,
+      leadingIcon,
       size: widget.config.leadingIconSize,
       color: shouldApplySelection(root)
           ? widget.config.iconSelectedColor
@@ -375,19 +378,22 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
 
   // info icons:----------------------------------------------------------------
   Widget _buildInfoIcons(ExpandableListItem root) {
-    return Row(
-      children: widget.config.icons
-          .map((icon) => Padding(
-                padding: const EdgeInsets.only(left: 4.0),
-                child: Icon(
-                  icon.icon,
-                  size: widget.config.infoIconSize,
-                  color: shouldApplySelection(root)
-                      ? widget.config.iconSelectedColor
-                      : widget.config.iconColor,
-                ),
-              ))
-          .toList(),
+    return Padding(
+      padding: const EdgeInsets.only(top: 8.0),
+      child: Row(
+        children: widget.config.icons
+            .map((icon) => Padding(
+                  padding: const EdgeInsets.only(left: 4.0),
+                  child: Icon(
+                    icon.icon,
+                    size: widget.config.infoIconSize,
+                    color: shouldApplySelection(root)
+                        ? widget.config.iconSelectedColor
+                        : widget.config.iconColor,
+                  ),
+                ))
+            .toList(),
+      ),
     );
   }
 

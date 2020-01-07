@@ -21,8 +21,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/model/dismissible_list_configuration.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="58" column="21" selection-start-line="58" selection-start-column="21" selection-end-line="58" selection-end-column="21" />
+            <state relative-caret-position="360">
+              <caret line="55" column="50" selection-start-line="55" selection-start-column="50" selection-end-line="55" selection-end-column="50" />
             </state>
           </provider>
         </entry>
@@ -30,8 +30,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/widgets/dismissible_expanded_list_widget.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3330">
-              <caret line="208" column="47" lean-forward="true" selection-start-line="208" selection-start-column="47" selection-end-line="208" selection-end-column="47" />
+            <state relative-caret-position="265">
+              <caret line="324" column="17" selection-start-line="324" selection-start-column="17" selection-end-line="324" selection-end-column="17" />
               <folding>
                 <element signature="e#131#201#0" expanded="true" />
               </folding>
@@ -511,7 +511,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578311378160</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="- added support for corner icons&#10;- added support for info icons&#10;- added support for corner icons padding and bg color">
+      <created>1578376214393</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1578376214393</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -615,7 +622,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- refactored code" />
     <MESSAGE value="- fixed toggle crash issue" />
     <MESSAGE value="- fixed tile height" />
     <MESSAGE value="- added styles for title and subtitle" />
@@ -640,7 +646,8 @@
     <MESSAGE value="- release v0.2.6&#10;- fixed config constructor" />
     <MESSAGE value="- extracted trailing widget&#10;- refactored code&#10;- published new version" />
     <MESSAGE value="- added custom clipper&#10;- added badge icon" />
-    <option name="LAST_COMMIT_MESSAGE" value="- added custom clipper&#10;- added badge icon" />
+    <MESSAGE value="- added support for corner icons&#10;- added support for info icons&#10;- added support for corner icons padding and bg color" />
+    <option name="LAST_COMMIT_MESSAGE" value="- added support for corner icons&#10;- added support for info icons&#10;- added support for corner icons padding and bg color" />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
@@ -860,15 +867,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/model/dismissible_list_configuration.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="58" column="21" selection-start-line="58" selection-start-column="21" selection-end-line="58" selection-end-column="21" />
+        <state relative-caret-position="360">
+          <caret line="55" column="50" selection-start-line="55" selection-start-column="50" selection-end-line="55" selection-end-column="50" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/widgets/dismissible_expanded_list_widget.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3330">
-          <caret line="208" column="47" lean-forward="true" selection-start-line="208" selection-start-column="47" selection-end-line="208" selection-end-column="47" />
+        <state relative-caret-position="265">
+          <caret line="324" column="17" selection-start-line="324" selection-start-column="17" selection-end-line="324" selection-end-column="17" />
           <folding>
             <element signature="e#131#201#0" expanded="true" />
           </folding>

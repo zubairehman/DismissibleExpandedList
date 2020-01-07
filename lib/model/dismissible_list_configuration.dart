@@ -18,7 +18,8 @@ class DismissibleListConfig {
   TextStyle titleSelectedStyle;
   TextStyle subTitleStyle;
   TextStyle subTitleSelectedStyle;
-  IconData leadingIcon;
+  IconData leadingIconForBatch;
+  IconData leadingIconForChild;
   IconData trailingIcon;
   IconData topLeftIcon;
   IconData bottomLeftIcon;
@@ -31,7 +32,8 @@ class DismissibleListConfig {
   Color iconColor;
   Color iconSelectedColor;
   Color backgroundColor;
-  Color cornerIconBackgroundColor;
+  Color cornerBackgroundColor;
+  Color cornerSelectionColor;
   List<Icon> icons;
 
   DismissibleListConfig({
@@ -40,7 +42,7 @@ class DismissibleListConfig {
     this.infoBadgeElevation = 0.0,
     this.infoIconSize = 16.0,
     this.leadingIconSize = 20.0,
-    this.cornerIconPadding = 4.0,
+    this.cornerIconPadding = 3.0,
     this.removeTileOnDismiss = true,
     this.allowBatchSwipe = true,
     this.allowChildSwipe = true,
@@ -51,10 +53,11 @@ class DismissibleListConfig {
     this.titleSelectedStyle = style.titleSelectedStyle,
     this.subTitleStyle = style.subTitleStyle,
     this.subTitleSelectedStyle = style.subTitleSelectedStyle,
-    this.leadingIcon = Icons.library_books,
+    this.leadingIconForBatch = Icons.layers,
+    this.leadingIconForChild = Icons.verified_user,
     this.trailingIcon = Icons.info_outline,
-    this.topLeftIcon,
-    this.bottomLeftIcon,
+    this.topLeftIcon = Icons.info_outline,
+    this.bottomLeftIcon = Icons.info_outline,
     this.bottomRightIcon,
     this.topRightIcon,
     this.lineColor = const Color(0xFFe0e0e0),
@@ -64,15 +67,9 @@ class DismissibleListConfig {
     this.iconColor = Colors.black87,
     this.iconSelectedColor = Colors.black87,
     this.backgroundColor = Colors.white,
-    this.cornerIconBackgroundColor = const Color(0xFFF3F3F3),
+    this.cornerBackgroundColor = Colors.white,
+    this.cornerSelectionColor = const Color(0xFFf3f3f3),
     this.icons = const [
-      Icon(Icons.phone),
-      Icon(Icons.print),
-      Icon(Icons.language),
-      Icon(Icons.person_outline),
-      Icon(Icons.flag),
-      Icon(Icons.phone),
-      Icon(Icons.print),
     ],
   });
 }
