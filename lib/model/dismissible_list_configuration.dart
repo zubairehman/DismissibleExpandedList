@@ -69,7 +69,6 @@ class DismissibleListConfig {
     this.backgroundColor = Colors.white,
     this.cornerBackgroundColor = Colors.white,
     this.cornerSelectionColor = const Color(0xFFf3f3f3),
-    this.icons = const [
-    ],
+    this.icons = const [],
   });
 }
