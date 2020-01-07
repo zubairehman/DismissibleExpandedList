@@ -1,6 +1,6 @@
 name: dismissible_expanded_list
 description: A Flutter package to display hierarchical data in the form  of list as well as allows to swipe the individual tiles.
-version: 0.2.7
+version: 0.2.8
 homepage: https://github.com/zubairehman/DismissibleExpandedList.git
 
 environment:

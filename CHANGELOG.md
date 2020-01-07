@@ -85,3 +85,9 @@
 ## [0.2.7] - 03-Jan-2020
 * refactored code
 * refactored trailing icon logic
+
+## [0.2.8] - 07-Jan-2020
+* refactored code
+* added support for corner icons
+* added support for info icons
+* added batch and child icon support
