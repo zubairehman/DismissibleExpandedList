@@ -7,6 +7,7 @@ class DismissibleListConfig {
   double infoBadgeElevation;
   double infoIconSize;
   double leadingIconSize;
+  double cornerIconPadding;
   bool removeTileOnDismiss;
   bool allowBatchSwipe;
   bool allowChildSwipe;
@@ -19,6 +20,10 @@ class DismissibleListConfig {
   TextStyle subTitleSelectedStyle;
   IconData leadingIcon;
   IconData trailingIcon;
+  IconData topLeftIcon;
+  IconData bottomLeftIcon;
+  IconData bottomRightIcon;
+  IconData topRightIcon;
   Color lineColor;
   Color selectionColor;
   Color rightSwipeColor;
@@ -27,13 +32,15 @@ class DismissibleListConfig {
   Color iconSelectedColor;
   Color backgroundColor;
   Color cornerIconBackgroundColor;
+  List<Icon> icons;
 
   DismissibleListConfig({
     this.badgeWidth = 80.0,
     this.listElevation = 3.0,
     this.infoBadgeElevation = 0.0,
-    this.infoIconSize = 15.0,
+    this.infoIconSize = 16.0,
     this.leadingIconSize = 20.0,
+    this.cornerIconPadding = 4.0,
     this.removeTileOnDismiss = true,
     this.allowBatchSwipe = true,
     this.allowChildSwipe = true,
@@ -46,6 +53,10 @@ class DismissibleListConfig {
     this.subTitleSelectedStyle = style.subTitleSelectedStyle,
     this.leadingIcon = Icons.library_books,
     this.trailingIcon = Icons.info_outline,
+    this.topLeftIcon,
+    this.bottomLeftIcon,
+    this.bottomRightIcon,
+    this.topRightIcon,
     this.lineColor = const Color(0xFFe0e0e0),
     this.selectionColor = const Color(0xFFcee9f0),
     this.rightSwipeColor = Colors.green,
@@ -53,6 +64,15 @@ class DismissibleListConfig {
     this.iconColor = Colors.black87,
     this.iconSelectedColor = Colors.black87,
     this.backgroundColor = Colors.white,
-    this.cornerIconBackgroundColor = Colors.white,
+    this.cornerIconBackgroundColor = const Color(0xFFF3F3F3),
+    this.icons = const [
+      Icon(Icons.phone),
+      Icon(Icons.print),
+      Icon(Icons.language),
+      Icon(Icons.person_outline),
+      Icon(Icons.flag),
+      Icon(Icons.phone),
+      Icon(Icons.print),
+    ],
   });
 }

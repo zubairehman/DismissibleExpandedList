@@ -184,27 +184,39 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
         children: <Widget>[
           widget.config.showInfoBadge ? _buildBadge(root) : SizedBox.shrink(),
           _buildListItem(root, parentIndex, childIndex),
-          _buildCornerIconWidget(
-            root,
-            radiusTopLeft: 4.0,
-            topLeft: true,
-            icon: Icons.access_time,
-            alignment: Alignment.topLeft,
-          ),
-          _buildCornerIconWidget(
-            root,
-            radiusBottomLeft: 4.0,
-            bottomLeft: true,
-            icon: Icons.access_time,
-            alignment: Alignment.bottomLeft,
-          ),
-          _buildCornerIconWidget(
-            root,
-            radiusBottomRight: 4.0,
-            bottomRight: true,
-            icon: Icons.access_time,
-            alignment: Alignment.bottomRight,
-          ),
+          widget.config.topLeftIcon != null
+              ? _buildCornerIconWidget(
+                  root,
+                  radiusTopLeft: 4.0,
+                  topLeft: true,
+                  icon: widget.config.topLeftIcon,
+                  alignment: Alignment.topLeft,
+                  paddingTop: widget.config.cornerIconPadding,
+                  paddingLeft: widget.config.cornerIconPadding,
+                )
+              : SizedBox.shrink(),
+          widget.config.bottomLeftIcon != null
+              ? _buildCornerIconWidget(
+                  root,
+                  radiusBottomLeft: 4.0,
+                  bottomLeft: true,
+                  icon: widget.config.bottomLeftIcon,
+                  alignment: Alignment.bottomLeft,
+                  paddingBottom: widget.config.cornerIconPadding,
+                  paddingLeft: widget.config.cornerIconPadding,
+                )
+              : SizedBox.shrink(),
+          widget.config.bottomRightIcon != null
+              ? _buildCornerIconWidget(
+                  root,
+                  radiusBottomRight: 4.0,
+                  bottomRight: true,
+                  icon: widget.config.bottomRightIcon,
+                  alignment: Alignment.bottomRight,
+                  paddingBottom: widget.config.cornerIconPadding,
+                  paddingRight: widget.config.cornerIconPadding,
+                )
+              : SizedBox.shrink(),
         ],
       ),
     );
@@ -216,7 +228,9 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
       child: Row(
         children: <Widget>[
           SizedBox(width: 8.0),
-          _buildLeadingWidget(root),
+          root.children != null && root.children.isNotEmpty
+              ? _buildLeadingWidget(root)
+              : SizedBox(width: 8.0),
           SizedBox(width: 8.0),
           Expanded(
             flex: 1,
@@ -252,6 +266,11 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
     double radiusTopLeft = 0.0,
     double radiusBottomLeft = 0.0,
     double radiusBottomRight = 0.0,
+    double radiusRight = 0.0,
+    double paddingLeft = 4.0,
+    double paddingBottom = 4.0,
+    double paddingTop = 4.0,
+    double paddingRight = 4.0,
     bool topLeft = false,
     bool topRight = false,
     bool bottomLeft = false,
@@ -271,8 +290,8 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
               bottomRight: bottomRight,
             ),
             child: Container(
-              height: 32.0,
-              width: 32.0,
+              height: 35.0,
+              width: 35.0,
               decoration: BoxDecoration(
                 color: widget.config.cornerIconBackgroundColor,
                 borderRadius: BorderRadius.only(
@@ -284,7 +303,18 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
             ),
           ),
         ),
-        Align(alignment: alignment, child: Icon(icon, size: 18.0))
+        Align(
+          alignment: alignment,
+          child: Padding(
+            padding: EdgeInsets.only(
+              left: paddingLeft,
+              bottom: paddingBottom,
+              top: paddingTop,
+              right: paddingRight,
+            ),
+            child: Icon(icon, size: widget.config.infoIconSize),
+          ),
+        )
       ],
     );
   }
@@ -346,31 +376,18 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
   // info icons:----------------------------------------------------------------
   Widget _buildInfoIcons(ExpandableListItem root) {
     return Row(
-      children: <Widget>[
-        Icon(
-          widget.config.trailingIcon,
-          size: widget.config.infoIconSize,
-          color: shouldApplySelection(root)
-              ? widget.config.iconSelectedColor
-              : widget.config.iconColor,
-        ),
-        SizedBox(width: 4.0),
-        Icon(
-          widget.config.trailingIcon,
-          size: widget.config.infoIconSize,
-          color: shouldApplySelection(root)
-              ? widget.config.iconSelectedColor
-              : widget.config.iconColor,
-        ),
-        SizedBox(width: 4.0),
-        Icon(
-          widget.config.trailingIcon,
-          size: widget.config.infoIconSize,
-          color: shouldApplySelection(root)
-              ? widget.config.iconSelectedColor
-              : widget.config.iconColor,
-        )
-      ],
+      children: widget.config.icons
+          .map((icon) => Padding(
+                padding: const EdgeInsets.only(left: 4.0),
+                child: Icon(
+                  icon.icon,
+                  size: widget.config.infoIconSize,
+                  color: shouldApplySelection(root)
+                      ? widget.config.iconSelectedColor
+                      : widget.config.iconColor,
+                ),
+              ))
+          .toList(),
     );
   }
 
