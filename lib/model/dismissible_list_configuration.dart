@@ -14,6 +14,7 @@ class DismissibleListConfig {
   bool allowParentSelection;
   bool showBorder;
   bool showInfoBadge;
+  bool showTrailingIcon;
   TextStyle titleStyle;
   TextStyle titleSelectedStyle;
   TextStyle subTitleStyle;
@@ -49,15 +50,16 @@ class DismissibleListConfig {
     this.allowParentSelection = true,
     this.showBorder = false,
     this.showInfoBadge = true,
+    this.showTrailingIcon = false,
     this.titleStyle = style.titleStyle,
     this.titleSelectedStyle = style.titleSelectedStyle,
     this.subTitleStyle = style.subTitleStyle,
     this.subTitleSelectedStyle = style.subTitleSelectedStyle,
     this.leadingIconForBatch = Icons.layers,
-    this.leadingIconForChild = Icons.verified_user,
+    this.leadingIconForChild = Icons.work,
     this.trailingIcon = Icons.info_outline,
-    this.topLeftIcon = Icons.info_outline,
-    this.bottomLeftIcon = Icons.info_outline,
+    this.topLeftIcon,
+    this.bottomLeftIcon,
     this.bottomRightIcon,
     this.topRightIcon,
     this.lineColor = const Color(0xFFe0e0e0),

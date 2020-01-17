@@ -228,10 +228,12 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
       child: Row(
         children: <Widget>[
           SizedBox(width: 8.0),
-          root.children != null && root.children.isNotEmpty
-              ? _buildLeadingWidget(root, widget.config.leadingIconForBatch)
-              : _buildLeadingWidget(root, widget.config.leadingIconForChild),
-          SizedBox(width: 8.0),
+          widget.config.showTrailingIcon
+              ? root.children != null && root.children.isNotEmpty
+                  ? _buildLeadingWidget(root, widget.config.leadingIconForBatch)
+                  : _buildLeadingWidget(root, widget.config.leadingIconForChild)
+              : SizedBox.shrink(),
+          SizedBox(width: widget.config.showTrailingIcon ? 8.0 : 4.0),
           Expanded(
             flex: 1,
             child: Column(
@@ -240,6 +242,7 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 _buildTitle(root),
+                SizedBox(height: 4.0),
                 _buildSubTitle(root),
                 widget.config.icons != null && widget.config.icons.isNotEmpty
                     ? _buildInfoIcons(root)

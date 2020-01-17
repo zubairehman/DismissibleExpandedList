@@ -91,3 +91,16 @@
 * added support for corner icons
 * added support for info icons
 * added batch and child icon support
+
+## [0.3.0] - 07-Jan-2020
+* refactored code
+* added support for corner icons
+* added support for info icons
+* added batch and child icon support
+* updated readme.md file
+
+## [0.3.1] - 17-Jan-2020
+* refactored code
+* added support for show/hide trailing icon
+* fixed padding issues
+
