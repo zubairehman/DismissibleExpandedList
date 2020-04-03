@@ -52,6 +52,8 @@ class _ExpansionTileSampleState extends State<ExpansionTileSample> {
     /// Configuration example
     DismissibleListConfig config = DismissibleListConfig()
       ..badgeWidth = 80.0
+      ..listTileHeight = 80.0
+      ..listTileChildHeight = 90.0
       ..listElevation = 3.0
       ..infoBadgeElevation = 0.0
       ..infoIconSize = 15.0

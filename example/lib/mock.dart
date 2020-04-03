@@ -16,6 +16,9 @@ final List<ExpandableListItem> mockData = <ExpandableListItem>[
         id: '1.1',
         title: getTextWidget('Section A0'),
         subTitle: getTextWidget('Subtitle'),
+        tileBody: Container(
+          child: Text("Tile text")
+        ),
         selected: true,
         badgeText: 'Not Started',
         badgeColor: Color(0xFFFFE082),
