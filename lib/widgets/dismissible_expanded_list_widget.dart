@@ -114,7 +114,7 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
                 (childIndex, entry) => MapEntry(
                   childIndex,
                   Container(
-                    height: 90.0,
+                    height: widget.config.listTileChildHeight,
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: <Widget>[

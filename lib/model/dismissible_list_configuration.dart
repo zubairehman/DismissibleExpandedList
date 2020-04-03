@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 class DismissibleListConfig {
   double badgeWidth;
   double listTileHeight;
+  double listTileChildHeight;
   double listElevation;
   double infoBadgeElevation;
   double infoIconSize;
@@ -41,6 +42,7 @@ class DismissibleListConfig {
   DismissibleListConfig({
     this.badgeWidth = 80.0,
     this.listTileHeight = 80.0,
+    this.listTileChildHeight = 90.0,
     this.listElevation = 3.0,
     this.infoBadgeElevation = 0.0,
     this.infoIconSize = 16.0,
