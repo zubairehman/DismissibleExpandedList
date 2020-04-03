@@ -4,6 +4,7 @@ class ExpandableListItem {
   final String id;
   final String title;
   final String subTitle;
+  final Widget tileBody;
   final String badgeText;
   final List<ExpandableListItem> children;
   final Color badgeColor;
@@ -17,6 +18,7 @@ class ExpandableListItem {
     this.id,
     this.title,
     this.subTitle,
+    this.tileBody,
     this.selected = false,
     this.children = const <ExpandableListItem>[],
   });

@@ -244,6 +244,8 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
                 _buildTitle(root),
                 SizedBox(height: 4.0),
                 _buildSubTitle(root),
+                SizedBox(height: 4.0,),
+                _buildTileBody(root),
                 widget.config.icons != null && widget.config.icons.isNotEmpty
                     ? _buildInfoIcons(root)
                     : SizedBox.shrink(),
@@ -359,6 +361,14 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
                 : widget.config.subTitleStyle ?? subTitleStyle,
           )
         : SizedBox.shrink();
+  }
+
+  Widget _buildTileBody(ExpandableListItem root) {
+  return root.tileBody != null
+      ? Container(
+          child: root.tileBody
+        )
+      : SizedBox.shrink();
   }
 
   Widget _buildTrailingWidget(ExpandableListItem root) {
