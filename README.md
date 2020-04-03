@@ -87,6 +87,7 @@ How to Configure
 /// Configuration example
 DismissibleListConfig config = DismissibleListConfig()
   ..badgeWidth = 80.0
+  ..listTileHeight = 80.0
   ..listElevation = 3.0
   ..infoBadgeElevation = 0.0
   ..infoIconSize = 15.0
@@ -115,7 +116,9 @@ List of params
 
 | Property              | Type                  | Default Value               | Description                                                                                                                                                                                                                                                                           |
 |-----------------------|-----------------------|-----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| badgeWidth            | double                | 80.0                        | The (optional) param to control badge width displayed at the top right.                                                                                                                                                                                                               |
+| badgeWidth            | double                | 80.0                        | The (optional) param to control badge width displayed at the top right.  
+
+| listTileHeight        | double                | 80.0                        | The (optional) param to control list tile height.                                                                                                                                                                                                              |
 | infoBadgeElevation    | double                | 0.0                         | The (optional) param to control the card elevation for info badge displayed at the top right.                                                                                                                                                                                         |
 | listElevation         | double                | 3.0                         | The (optional) param to control the card elevation for dismissible list item.                                                                                                                                                                                                         |
 | infoIconSize          | double                | 15.0                        | The (optional) param to control the size of info icon displayed in-front of the title.                                                                                                                                                                                                |
@@ -211,6 +214,7 @@ class _ExpansionTileSampleState extends State<ExpansionTileSample> {
     /// Configuration example
     DismissibleListConfig config = DismissibleListConfig()
       ..badgeWidth = 80.0
+      ..listTileHeight = 80.0
       ..listElevation = 3.0
       ..infoBadgeElevation = 0.0
       ..infoIconSize = 15.0

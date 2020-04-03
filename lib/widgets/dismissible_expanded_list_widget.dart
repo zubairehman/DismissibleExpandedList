@@ -179,7 +179,7 @@ class _DismissibleExpandableListState extends State<DismissibleExpandableList>
   Widget _buildListTileContent(
       ExpandableListItem root, int parentIndex, int childIndex) {
     return Container(
-      height: 80.0,
+      height: widget.config.listTileHeight,
       child: Stack(
         children: <Widget>[
           widget.config.showInfoBadge ? _buildBadge(root) : SizedBox.shrink(),
